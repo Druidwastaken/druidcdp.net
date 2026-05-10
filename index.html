@@ -3,18 +3,11 @@
 <head>
   <link rel="icon" href="icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Druidcdp.net</title>
-
-  <meta name="title" content="Welcome to Druidcdp.net!">
-  <meta name="description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Welcome to Druidcdp.net!">
-  <meta property="og:description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
-  <meta property="og:url" content="https://www.druidcdp.net">
 
   <meta name="theme-color" content="#EDAD0B">
 
@@ -22,6 +15,7 @@
     body {
       background: #111;
       color: white;
+      font-family: Roboto;
     }
 
     #container {
@@ -33,42 +27,85 @@
       padding: 20px;
     }
 
-    #content a {
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn {
       display: block;
-      padding: 10px;
-      margin: 8px 0;
+      padding: 15px;
       background: #2a2a2a;
       color: white;
       text-decoration: none;
+      text-align: center;
       border-left: 5px solid #EDAD0B;
-      font-family: Roboto;
+      position: relative;
     }
 
-    #content a:hover {
+    .btn:hover {
       background: #3a3a3a;
     }
-  </style>
 
+    .disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .disabled img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
+
+    .disabled span {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
 </head>
 
 <body>
 
   <center>
-    <span style="font-family:Roboto;">
+    <span>
       EVERYTHING SHOWN CREATED BY JONATHAN CD P (AKA: Druid/Druidwastaken) IS UNDER THE CREATIVE COMMONS 0 LICENSE.<br>
       CREDIT IS NOT LEGALLY REQUIRED, BUT PLEASE DO IF YOU WISH TO BE RESPECTFUL.
     </span>
   </center>
 
-  <!-- HTwins-style box starts here -->
   <div id="container">
 
-    <div id="content">
+    <div id="grid">
 
-      <a href="/zero">Zero</a>
-      <a href="/games">Games</a>
-      <a href="/tools">Tools</a>
-      <a href="/blog">Blog</a>
+      <!-- Row 1 -->
+      <div class="btn disabled">
+        <img src="cautiontape.png">
+        <span>ZERO</span>
+      </div>
+
+      <a class="btn" href="/flash-games">Flash Games</a>
+
+      <!-- Row 2 -->
+      <a class="btn" href="/channels">Channels</a>
+
+      <div class="btn disabled">
+        <img src="cautiontape.png">
+        <span>TOOLS</span>
+      </div>
+
+      <!-- Row 3 -->
+      <a class="btn" href="/newsletter">Newsletter</a>
+
+      <div class="btn disabled">
+        <img src="cautiontape.png">
+        <span>MISC</span>
+      </div>
 
     </div>
 
