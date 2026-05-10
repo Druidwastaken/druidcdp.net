@@ -35,10 +35,11 @@
       padding: 20px;
     }
 
+    /* increased spacing */
     #grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 18px;
     }
 
     .btn {
@@ -76,7 +77,11 @@
       z-index: 2;
     }
 
-    /* ad OUTSIDE container */
+    /* FAQ spans both columns */
+    .full {
+      grid-column: 1 / span 2;
+    }
+
     #ad {
       width: 700px;
       margin: 15px auto 30px auto;
@@ -92,7 +97,6 @@
 
 <body>
 
-  <!-- licensing text -->
   <center>
     <span style="font-family:Roboto;">
       EVERYTHING SHOWN CREATED BY JONATHAN CD P (AKA: Druid/Druidwastaken) IS UNDER THE CREATIVE COMMONS 0 LICENSE.<br>
@@ -100,7 +104,6 @@
     </span>
   </center>
 
-  <!-- main box -->
   <div id="container">
 
     <div id="grid">
@@ -126,11 +129,16 @@
         <span>Misc</span>
       </div>
 
+      <!-- NEW FAQ BUTTON -->
+      <div class="btn disabled full">
+        <img src="cautiontape.png">
+        <span>FAQs</span>
+      </div>
+
     </div>
 
   </div>
 
-  <!-- fake ad UNDER the box -->
   <div id="ad">
     <img src="fakead.png">
   </div>
