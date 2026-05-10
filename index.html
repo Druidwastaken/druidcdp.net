@@ -9,6 +9,14 @@
 
   <title>Druidcdp.net</title>
 
+  <meta name="title" content="Welcome to Druidcdp.net!">
+  <meta name="description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Welcome to Druidcdp.net!">
+  <meta property="og:description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
+  <meta property="og:url" content="https://www.druidcdp.net">
+
   <meta name="theme-color" content="#EDAD0B">
 
   <style>
@@ -68,8 +76,10 @@
       z-index: 2;
     }
 
+    /* ad OUTSIDE container */
     #ad {
-      margin-top: 20px;
+      width: 700px;
+      margin: 15px auto 30px auto;
       text-align: center;
     }
 
@@ -82,18 +92,19 @@
 
 <body>
 
+  <!-- licensing text -->
   <center>
-    <span>
+    <span style="font-family:Roboto;">
       EVERYTHING SHOWN CREATED BY JONATHAN CD P (AKA: Druid/Druidwastaken) IS UNDER THE CREATIVE COMMONS 0 LICENSE.<br>
       CREDIT IS NOT LEGALLY REQUIRED, BUT PLEASE DO IF YOU WISH TO BE RESPECTFUL.
     </span>
   </center>
 
+  <!-- main box -->
   <div id="container">
 
     <div id="grid">
 
-      <!-- Row 1 -->
       <div class="btn disabled">
         <img src="cautiontape.png">
         <span>ZERO</span>
@@ -101,7 +112,6 @@
 
       <a class="btn" href="/flash-games">Flash Games</a>
 
-      <!-- Row 2 -->
       <a class="btn" href="/channels">Channels</a>
 
       <div class="btn disabled">
@@ -109,7 +119,6 @@
         <span>TOOLS</span>
       </div>
 
-      <!-- Row 3 -->
       <a class="btn" href="/newsletter">Newsletter</a>
 
       <div class="btn disabled">
@@ -119,11 +128,11 @@
 
     </div>
 
-    <!-- fake ad -->
-    <div id="ad">
-      <img src="fakead.png">
-    </div>
+  </div>
 
+  <!-- fake ad UNDER the box -->
+  <div id="ad">
+    <img src="fakead.png">
   </div>
 
 </body>
