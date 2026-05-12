@@ -28,29 +28,32 @@
       letter-spacing: 2px;
     }
 
-    .button-box {
+    .section {
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      background: transparent;
       border: 2px solid #EDAD0B;
       border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
+      color: #EDAD0B;
+      font-size: 1.2rem;
       cursor: pointer;
       transition: 0.2s;
     }
 
-    .button-box:hover {
+    button:hover {
       background: rgba(237, 173, 11, 0.1);
       transform: translateY(-2px);
     }
 
-    .button-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
     .description {
+      margin-top: 10px;
       color: #cccccc;
       line-height: 1.5;
+      padding-left: 5px;
     }
   </style>
 </head>
@@ -60,24 +63,24 @@
 
     <h1>MY TITLE</h1>
 
-    <div class="button-box">
-      <div class="button-title">Button One</div>
+    <div class="section">
+      <button>Button One</button>
       <div class="description">
-        This is the description for the first button.
+        This description sits underneath the button.
       </div>
     </div>
 
-    <div class="button-box">
-      <div class="button-title">Button Two</div>
+    <div class="section">
+      <button>Button Two</button>
       <div class="description">
-        This is the description for the second button.
+        Add any text you want here.
       </div>
     </div>
 
-    <div class="button-box">
-      <div class="button-title">Button Three</div>
+    <div class="section">
+      <button>Button Three</button>
       <div class="description">
-        This is the description for the third button.
+        Easily duplicate this section for more buttons.
       </div>
     </div>
 
