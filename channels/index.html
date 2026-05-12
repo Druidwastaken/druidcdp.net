@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Webpage</title>
 
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: black;
+      color: #EDAD0B;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    .button-box {
+      border: 2px solid #EDAD0B;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .button-box:hover {
+      background: rgba(237, 173, 11, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .button-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #cccccc;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>MY TITLE</h1>
+
+    <div class="button-box">
+      <div class="button-title">Button One</div>
+      <div class="description">
+        This is the description for the first button.
+      </div>
+    </div>
+
+    <div class="button-box">
+      <div class="button-title">Button Two</div>
+      <div class="description">
+        This is the description for the second button.
+      </div>
+    </div>
+
+    <div class="button-box">
+      <div class="button-title">Button Three</div>
+      <div class="description">
+        This is the description for the third button.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
