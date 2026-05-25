@@ -6,6 +6,19 @@
 
 <style>
 
+#hiddenDoor {
+    margin-top: 200px; 
+    text-align: center;
+    display: none;
+}
+
+#hiddenDoor img {
+    width: 160px;
+    cursor: pointer;
+    border: 3px solid yellow;
+    background: black;
+}
+    
 #errorBox {
     margin-top: 15px;
     color: red;
@@ -259,9 +272,16 @@ function submitAd() {
 
     document.getElementById("errorBox").innerText = messages[random];
 }
+    
+window.addEventListener("scroll", function () {
+    const door = document.getElementById("hiddenDoor");
+
+    if (window.scrollY > 300) {
+        door.style.display = "block";
+    }
+});
 </script>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div id="hiddenDoor">
+
     <a href="vault/">
         <img src="door.png"/>
     </a>
