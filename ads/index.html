@@ -7,7 +7,7 @@
 <style>
 
 #hiddenDoor {
-    margin-top: 200px; 
+    margin-top: 200px;
     text-align: center;
     display: none;
 }
@@ -18,7 +18,7 @@
     border: 3px solid yellow;
     background: black;
 }
-    
+
 #errorBox {
     margin-top: 15px;
     color: red;
@@ -28,7 +28,7 @@
     border: 2px solid red;
     padding: 8px;
 }
-    
+
 body {
     background-color: #003366;
     font-family: Verdana, Arial, sans-serif;
@@ -157,6 +157,7 @@ textarea {
         opacity: 0.4;
     }
 }
+
 </style>
 </head>
 
@@ -251,9 +252,16 @@ Best viewed in Netscape Navigator 4.0<br>
 © 1999 Druid Advertising Network
 </div>
 
+<div id="hiddenDoor">
+    <a href="vault/">
+        <img src="door.png"/>
+    </a>
+</div>
+
 </div>
 
 <script>
+
 function submitAd() {
     const messages = [
         "ERROR 0x0001: Connection timed out. Try again later.",
@@ -272,7 +280,7 @@ function submitAd() {
 
     document.getElementById("errorBox").innerText = messages[random];
 }
-    
+
 window.addEventListener("scroll", function () {
     const door = document.getElementById("hiddenDoor");
 
@@ -280,12 +288,8 @@ window.addEventListener("scroll", function () {
         door.style.display = "block";
     }
 });
+
 </script>
 
-    <a href="vault/">
-        <img src="door.png"/>
-    </a>
-        
-</div>
 </body>
 </html>
