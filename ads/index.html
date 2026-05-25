@@ -5,6 +5,17 @@
 <link rel="icon" href="/icon.png">
 
 <style>
+
+#errorBox {
+    margin-top: 15px;
+    color: red;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+    background: black;
+    border: 2px solid red;
+    padding: 8px;
+}
+    
 body {
     background-color: #003366;
     font-family: Verdana, Arial, sans-serif;
@@ -205,6 +216,8 @@ $40/week
 SUBMIT AD!!!
 </button>
 
+<div id="errorBox"></div>
+
 </form>
 
 </div>
@@ -243,7 +256,8 @@ function submitAd() {
     ];
 
     const random = Math.floor(Math.random() * messages.length);
-    alert(messages[random]);
+
+    document.getElementById("errorBox").innerText = messages[random];
 }
 </script>
 
