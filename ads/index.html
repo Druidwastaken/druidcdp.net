@@ -9,11 +9,15 @@ body {
     font-family: Verdana, Arial, sans-serif;
     color: white;
     margin: 0;
+    background-image:
+        linear-gradient(45deg, #002244 25%, transparent 25%),
+        linear-gradient(-45deg, #002244 25%, transparent 25%);
+    background-size: 40px 40px;
 }
 
 .wrapper {
     width: 760px;
-    margin: auto;
+    margin: 20px auto;
     background: #111;
     border: 5px ridge silver;
     padding: 20px;
@@ -23,12 +27,14 @@ h1 {
     text-align: center;
     color: yellow;
     font-size: 42px;
+    text-shadow: 3px 3px red;
 }
 
 marquee {
     color: lime;
     font-weight: bold;
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .form-box {
@@ -50,7 +56,8 @@ input, textarea, select {
     color: lime;
     border: 2px inset gray;
     padding: 6px;
-    font-family: Courier New;
+    font-family: "Courier New", monospace;
+    box-sizing: border-box;
 }
 
 textarea {
@@ -91,11 +98,39 @@ textarea {
     margin-top: 10px;
 }
 
+.gif-box {
+    background: black;
+    color: cyan;
+    border: 2px solid lime;
+    padding: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+
 .footer {
     margin-top: 30px;
     text-align: center;
     font-size: 12px;
     color: #aaa;
+}
+
+.badge {
+    display: inline-block;
+    background: navy;
+    color: yellow;
+    border: 2px outset white;
+    padding: 6px 12px;
+    margin: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.4;
+    }
 }
 </style>
 </head>
@@ -107,38 +142,47 @@ textarea {
 <h1>ADVERTISE YOUR WEBSITE!!!</h1>
 
 <marquee scrollamount="10">
-⭐ REACH THOUSANDS OF INTERNET USERS DAILY! ⭐
+★ REACH THOUSANDS OF INTERNET USERS DAILY ★ SUBMIT YOUR WEBSITE TODAY ★
 </marquee>
 
 <div class="main">
 
 <div class="sidebar">
-    <h3>AD RATES</h3>
 
-    <div class="price-box">
-        Banner Ad<br>
-        $15/week
-    </div>
+<h3 style="color:yellow;">AD RATES</h3>
 
-    <div class="price-box">
-        Sidebar Button<br>
-        $8/week
-    </div>
+<div class="price-box">
+Banner Ad<br>
+$15/week
+</div>
 
-    <div class="price-box">
-        Front Page Sponsor<br>
-        $40/week
-    </div>
+<div class="price-box">
+Sidebar Button<br>
+$8/week
+</div>
 
-    <br>
+<div class="price-box">
+Front Page Sponsor<br>
+$40/week
+</div>
 
-    <img src="https://web.archive.org/web/20091027075640/http://geocities.com/clipart/pbi/buttons/new2.gif">
+<div class="gif-box">
+[ NEW! ]
+</div>
+
+<div class="gif-box">
+[ HOT SITE ]
+</div>
+
+<div class="gif-box">
+[ COOL LINK ]
+</div>
 
 </div>
 
 <div class="form-box">
 
-<h2>Submit Your Advertisement</h2>
+<h2 style="color:cyan;">Submit Your Advertisement</h2>
 
 <form>
 
@@ -153,9 +197,9 @@ textarea {
 
 <label>Advertisement Type:</label>
 <select>
-    <option>Banner Ad</option>
-    <option>Sidebar Button</option>
-    <option>Front Page Sponsor</option>
+<option>Banner Ad</option>
+<option>Sidebar Button</option>
+<option>Front Page Sponsor</option>
 </select>
 
 <label>Ad Description:</label>
@@ -179,13 +223,27 @@ SUBMIT AD!!!
 <hr>
 
 <center>
-<img src="https://web.archive.org/web/20091027105748/http://geocities.com/clipart/pbi/buttons/emailme.gif">
-<img src="https://web.archive.org/web/20091027145454/http://geocities.com/clipart/pbi/buttons/browser2.gif">
+
+<div class="badge">
+BEST VIEWED IN NETSCAPE
+</div>
+
+<div class="badge">
+800x600 ONLY
+</div>
+
+<div class="badge">
+HTML POWERED
+</div>
+
+<div class="badge">
+EMAIL THE WEBMASTER
+</div>
+
 </center>
 
 <div class="footer">
-Best viewed in Netscape Navigator • Webmaster: admin@coolsite.com
-<br>
+Best viewed in Netscape Navigator 4.0<br>
 © 1999 CoolSite Advertising Network
 </div>
 
