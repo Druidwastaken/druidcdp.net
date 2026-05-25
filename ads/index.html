@@ -166,17 +166,9 @@ Front Page Sponsor<br>
 $40/week
 </div>
 
-<div class="gif-box">
-[ NEW! ]
-</div>
-
-<div class="gif-box">
-[ HOT SITE ]
-</div>
-
-<div class="gif-box">
-[ COOL LINK ]
-</div>
+<div class="gif-box">[ NEW! ]</div>
+<div class="gif-box">[ HOT SITE ]</div>
+<div class="gif-box">[ COOL LINK ]</div>
 
 </div>
 
@@ -203,14 +195,12 @@ $40/week
 </select>
 
 <label>Ad Description:</label>
-<textarea>
-Tell us about your cool website!!!
-</textarea>
+<textarea>Tell us about your cool website!!!</textarea>
 
 <label>Upload Banner:</label>
 <input type="file">
 
-<button class="submit-btn">
+<button class="submit-btn" type="button" onclick="submitAd()">
 SUBMIT AD!!!
 </button>
 
@@ -223,31 +213,38 @@ SUBMIT AD!!!
 <hr>
 
 <center>
-
-<div class="badge">
-BEST VIEWED IN NETSCAPE
-</div>
-
-<div class="badge">
-800x600 ONLY
-</div>
-
-<div class="badge">
-HTML POWERED
-</div>
-
-<div class="badge">
-EMAIL THE WEBMASTER
-</div>
-
+<div class="badge">BEST VIEWED IN NETSCAPE</div>
+<div class="badge">800x600 ONLY</div>
+<div class="badge">HTML POWERED</div>
+<div class="badge">EMAIL THE WEBMASTER</div>
 </center>
 
 <div class="footer">
 Best viewed in Netscape Navigator 4.0<br>
-© 1999 CoolSite Advertising Network
+© 1999 Druid Advertising Network
 </div>
 
 </div>
+
+<script>
+function submitAd() {
+    const messages = [
+        "ERROR 0x0001: Connection timed out. Try again later.",
+        "SERVER BUSY: Please wait 37 seconds and retry.",
+        "UPLOAD FAILED: You spelt something wrong I think",
+        "ERROR: DELTARUNE is waiting. go play that.",
+        "NOTICE: This feature requires Netscape 5.0 or higher.",
+        "FATAL ERROR: you do it idc...",
+        "ERROR 418: I'm a teapot. Cannot process ads.",
+        "UPLOAD INTERRUPTED: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!!!!!!!!!!!!!!!!!!!!!!!!!?!?!????!?!?",
+        "ERROR: DOHASDOSHIH!",
+        "ERROR: CODE 4TEXLIXMG"
+    ];
+
+    const random = Math.floor(Math.random() * messages.length);
+    alert(messages[random]);
+}
+</script>
 
 </body>
 </html>
