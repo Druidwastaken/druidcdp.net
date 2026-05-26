@@ -6,19 +6,6 @@
 
 <style>
 
-#hiddenDoor {
-    margin-top: 200px;
-    text-align: center;
-    display: none;
-}
-
-#hiddenDoor img {
-    width: 160px;
-    cursor: pointer;
-    border: 3px solid yellow;
-    background: black;
-}
-
 #errorBox {
     margin-top: 15px;
     color: red;
@@ -152,6 +139,15 @@ textarea {
     font-weight: bold;
 }
 
+#hiddenDoor {
+    display: none;
+    text-align: center;
+}
+
+#hiddenDoor img {
+    width: 160px;
+}
+
 @keyframes blink {
     50% {
         opacity: 0.4;
@@ -193,7 +189,9 @@ $40/week
 </div>
 
 <div class="gif-box">[ NEW! ]</div>
+
 <div class="gif-box">[ HOT SITE ]</div>
+
 <div class="gif-box">[ COOL LINK ]</div>
 
 </div>
@@ -214,6 +212,7 @@ $40/week
 <input type="text" value="http://">
 
 <label>Advertisement Type:</label>
+
 <select>
 <option>Banner Ad</option>
 <option>Sidebar Button</option>
@@ -221,9 +220,11 @@ $40/week
 </select>
 
 <label>Ad Description:</label>
+
 <textarea>Tell us about your cool website!!!</textarea>
 
 <label>Upload Banner:</label>
+
 <input type="file">
 
 <button class="submit-btn" type="button" onclick="submitAd()">
@@ -241,10 +242,15 @@ SUBMIT AD!!!
 <hr>
 
 <center>
+
 <div class="badge">BEST VIEWED IN NETSCAPE</div>
+
 <div class="badge">800x600 ONLY</div>
+
 <div class="badge">HTML POWERED</div>
+
 <div class="badge">EMAIL THE WEBMASTER</div>
+
 </center>
 
 <div class="footer">
@@ -252,28 +258,54 @@ Best viewed in Netscape Navigator 4.0<br>
 © 1999 Druid Advertising Network
 </div>
 
-<div id="hiddenDoor">
-    <a href="vault/">
-        <img src="door.png"/>
-    </a>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="hiddenDoor">
+
+<a href="../vault/">
+
+<img src="../door.png">
+
+</a>
 
 </div>
 
 <script>
 
 function submitAd() {
+
     const messages = [
         "ERROR 0x0001: Connection timed out. Try again later.",
         "SERVER BUSY: Please wait 37 seconds and retry.",
-        "UPLOAD FAILED: You spelt something wrong i think",
+        "UPLOAD FAILED: You spelt something wrong I think",
         "ERROR: DELTARUNE is waiting. go play that.",
         "NOTICE: This feature requires Netscape 5.0 or higher.",
         "FATAL ERROR: you do it idc...",
         "ERROR 418: I'm a teapot. Cannot process ads.",
         "UPLOAD INTERRUPTED: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!!!!!!!!!!!!!!!!!!!!!!!!!?!?!????!?!?",
         "ERROR: DOHASDOSHIH!",
-        "ERROR: CODE 4LWPDAPEY"
+        "ERROR: CODE 4TEXLIXMG"
     ];
 
     const random = Math.floor(Math.random() * messages.length);
@@ -282,11 +314,15 @@ function submitAd() {
 }
 
 window.addEventListener("scroll", function () {
+
     const door = document.getElementById("hiddenDoor");
 
     if (window.scrollY > 300) {
+
         door.style.display = "block";
+
     }
+
 });
 
 </script>
