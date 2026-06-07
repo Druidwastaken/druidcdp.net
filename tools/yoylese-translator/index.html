@@ -30,15 +30,14 @@
 
   .box-container {
     display: flex;
-    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    gap: 20px;
   }
 
   textarea {
-    width: 100%;
-    max-width: 420px;
-    height: 300px;
+    flex: 1;
+    min-width: 300px;
+    height: 350px;
     padding: 15px;
     font-size: 16px;
     resize: none;
@@ -59,6 +58,18 @@
 
   textarea::placeholder {
     color: #777;
+  }
+
+  /* mobile fix */
+  @media (max-width: 700px) {
+    .box-container {
+      flex-direction: column;
+    }
+
+    textarea {
+      min-width: unset;
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -112,24 +123,21 @@ const map = {
   z: "⨀"
 };
 
-// Build reverse map automatically
+// Reverse map
 const reverseMap = {};
 for (const key in map) {
   reverseMap[map[key]] = key;
 }
 
-// Encode
 function encode(str) {
   str = str.toLowerCase();
   return [...str].map(c => map[c] ?? c).join("");
 }
 
-// Decode
 function decode(str) {
   return [...str].map(c => reverseMap[c] ?? c).join("");
 }
 
-// sync box1 → box2
 box1.addEventListener("input", () => {
   if (lock) return;
   lock = true;
@@ -137,7 +145,6 @@ box1.addEventListener("input", () => {
   lock = false;
 });
 
-// sync box2 → box1
 box2.addEventListener("input", () => {
   if (lock) return;
   lock = true;
