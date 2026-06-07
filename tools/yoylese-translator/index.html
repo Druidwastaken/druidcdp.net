@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Dual Encoder Boxes</title>
+<title>Yoylese Translator</title>
 
 <style>
   body {
@@ -30,11 +30,11 @@
 
 <body>
 
-<h1>Two-Way Unicode Encoder</h1>
+<h1>Two-Way Translator/h1>
 
 <div class="container">
-  <textarea id="box1" placeholder="Type normal text..."></textarea>
-  <textarea id="box2" placeholder="Encoded text..."></textarea>
+  <textarea id="box1" placeholder="Type English text..."></textarea>
+  <textarea id="box2" placeholder="Type Yoylese text..."></textarea>
 </div>
 
 <script>
@@ -44,8 +44,39 @@ const box2 = document.getElementById("box2");
 let lock = false;
 
 // a-z → fullwidth unicode
-const map = {};
+const map = {
+  a: "⊸",
+  b: "𐊀",
+  c: "⛛",
+  d: "…",
+  e: "…",
+  f: "…",
+  g: "…",
+  h: "…",
+  i: "…",
+  j: "…",
+  k: "…",
+  l: "…",
+  m: "…",
+  n: "…",
+  o: "…",
+  p: "…",
+  q: "…",
+  r: "…",
+  s: "…",
+  t: "…",
+  u: "…",
+  v: "…",
+  w: "…",
+  x: "…",
+  y: "…",
+  z: "⨀"
+};
 const reverseMap = {};
+
+for (const key in map) {
+  reverseMap[map[key]] = key;
+}
 
 const aCode = "a".charCodeAt(0);
 
