@@ -30,7 +30,7 @@
 
 <body>
 
-<h1>Two-Way Translator/h1>
+<h1>Two-Way Translator</h1>
 
 <div class="container">
   <textarea id="box1" placeholder="Type English text..."></textarea>
@@ -43,7 +43,7 @@ const box2 = document.getElementById("box2");
 
 let lock = false;
 
-// a-z → fullwidth unicode
+// Your custom alphabet
 const map = {
   a: "⊸",
   b: "𐊀",
@@ -63,7 +63,7 @@ const map = {
   p: "π",
   q: "ꘜ",
   r: "𝄑",
-  s: "‎⋈",
+  s: "⋈",
   t: "ᖗ",
   u: "⊣",
   v: "⧖",
@@ -72,26 +72,20 @@ const map = {
   y: "ᖙ",
   z: "⨀"
 };
-const reverseMap = {};
 
+// Build reverse map automatically
+const reverseMap = {};
 for (const key in map) {
   reverseMap[map[key]] = key;
 }
 
-const aCode = "a".charCodeAt(0);
-
-for (let i = 0; i < 26; i++) {
-  const letter = String.fromCharCode(aCode + i);
-  const encoded = String.fromCharCode(0xff41 + i); // ａ - ｚ
-  map[letter] = encoded;
-  reverseMap[encoded] = letter;
-}
-
+// Encode function
 function encode(str) {
   str = str.toLowerCase();
   return [...str].map(c => map[c] ?? c).join("");
 }
 
+// Decode function
 function decode(str) {
   return [...str].map(c => reverseMap[c] ?? c).join("");
 }
