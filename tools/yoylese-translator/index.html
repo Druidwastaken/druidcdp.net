@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dual Encoder Boxes</title>
 
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  textarea {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Two-Way Unicode Encoder</h1>
+
+<div class="container">
+  <textarea id="box1" placeholder="Type normal text..."></textarea>
+  <textarea id="box2" placeholder="Encoded text..."></textarea>
+</div>
+
+<script>
+const box1 = document.getElementById("box1");
+const box2 = document.getElementById("box2");
+
+let lock = false;
+
+// a-z → fullwidth unicode
+const map = {};
+const reverseMap = {};
+
+const aCode = "a".charCodeAt(0);
+
+for (let i = 0; i < 26; i++) {
+  const letter = String.fromCharCode(aCode + i);
+  const encoded = String.fromCharCode(0xff41 + i); // ａ - ｚ
+  map[letter] = encoded;
+  reverseMap[encoded] = letter;
+}
+
+function encode(str) {
+  str = str.toLowerCase();
+  return [...str].map(c => map[c] ?? c).join("");
+}
+
+function decode(str) {
+  return [...str].map(c => reverseMap[c] ?? c).join("");
+}
+
+// box1 → box2
+box1.addEventListener("input", () => {
+  if (lock) return;
+  lock = true;
+  box2.value = encode(box1.value);
+  lock = false;
+});
+
+// box2 → box1
+box2.addEventListener("input", () => {
+  if (lock) return;
+  lock = true;
+  box1.value = decode(box2.value);
+  lock = false;
+});
+</script>
+
+</body>
+</html>
