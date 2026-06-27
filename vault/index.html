@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vault</title>
+
+<style>
+    body {
+        background: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        letter-spacing: 3px;
+    }
+
+    .vault {
+        display: flex;
+        gap: 10px;
+    }
+
+    input {
+        width: 250px;
+        padding: 12px;
+        font-size: 16px;
+        background: #222;
+        border: 1px solid #555;
+        color: white;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    #message {
+        margin-top: 20px;
+        min-height: 24px;
+        color: #ddd;
+    }
+</style>
+</head>
+<body>
+
+<h1>VAULT</h1>
+
+<div class="vault">
+    <input type="text" id="codeInput" placeholder="Enter code">
+    <button onclick="checkCode()">ENTER</button>
+</div>
+
+<div id="message"></div>
+
+<audio id="audioPlayer"></audio>
+
+<script>
+function checkCode() {
+    const code = document.getElementById("codeInput").value.trim();
+    const message = document.getElementById("message");
+    const audio = document.getElementById("audioPlayer");
+
+    message.textContent = "";
+
+    switch (code) {
+
+        case "PATHETIC":
+            window.location.href = "https://druidcdp.net/vault/doors/";
+            break;
+
+        case "tellmemore":
+            window.location.href = "https://druidcdp.net/vault/whatelsetolearn/";
+            break;
+
+        case "TEXLIXMG":
+        case "4TEXLIXMG":
+            message.textContent = "YOUR ATTEMPTS AMUSE ME";
+            break;
+
+        case "tier3":
+            audio.src = "/p2.wav";
+            audio.play();
+            break;
+
+        case "cjohnson":
+            audio.src = "/p1.wav";
+            audio.play();
+            break;
+
+        default:
+            message.textContent = "ACCESS DENIED";
+    }
+}
+
+document.getElementById("codeInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        checkCode();
+    }
+});
+</script>
+
+</body>
+</html>
