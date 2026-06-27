@@ -6,60 +6,73 @@
 <title>Vault</title>
 
 <style>
-    body {
-        background: #111;
-        color: white;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        margin: 0;
-    }
+body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+}
 
-    h1 {
-        margin-bottom: 30px;
-        letter-spacing: 3px;
-    }
+h1 {
+    margin-bottom: 40px;
+    letter-spacing: 8px;
+    font-weight: normal;
+}
 
-    .vault {
-        display: flex;
-        gap: 10px;
-    }
+.square {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #666;
+    background: #1a1a1a;
+    box-sizing: border-box;
+}
 
-    input {
-        width: 250px;
-        padding: 12px;
-        font-size: 16px;
-        background: #222;
-        border: 1px solid #555;
-        color: white;
-    }
+#codeInput {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    outline: none;
+}
 
-    button {
-        padding: 12px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background: #333;
-        color: white;
-        border: 1px solid #555;
-    }
+#submitSquare {
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
 
-    #message {
-        margin-top: 20px;
-        min-height: 24px;
-        color: #ddd;
-    }
+#submitSquare:hover {
+    background: #222;
+}
+
+#message {
+    position: fixed;
+    bottom: 40px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
 </style>
 </head>
 <body>
 
 <h1>VAULT</h1>
 
-<div class="vault">
-    <input type="text" id="codeInput" placeholder="Enter code">
-    <button onclick="checkCode()">ENTER</button>
+<input
+    class="square"
+    id="codeInput"
+    type="text"
+    autocomplete="off"
+    spellcheck="false">
+
+<div
+    class="square"
+    id="submitSquare"
+    onclick="checkCode()">
 </div>
 
 <div id="message"></div>
@@ -104,7 +117,7 @@ function checkCode() {
     }
 }
 
-document.getElementById("codeInput").addEventListener("keypress", function(e) {
+document.getElementById("codeInput").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         checkCode();
     }
