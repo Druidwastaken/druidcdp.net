@@ -75,10 +75,10 @@ h1 {
 <div id="message"></div>
 
 <audio id="audioPlayer"></audio>
-
+<!-- If you're reading this, you must hate fun! -->
 <script>
 function checkCode() {
-    const code = document.getElementById("codeInput").value.trim();
+    const code = document.getElementById("codeInput").value.trim().toLowerCase();
     const message = document.getElementById("message");
     const audio = document.getElementById("audioPlayer");
 
@@ -86,28 +86,38 @@ function checkCode() {
 
     switch (code) {
 
-        case "PATHETIC":
+        case "pathetic":<!-- If you're reading this, you must hate fun! -->
             window.location.href = "https://druidcdp.net/vault/doors/";
             break;
 
-        case "tellmemore":
+        case "tellmemore":<!-- If you're reading this, you must hate fun! -->
             window.location.href = "https://druidcdp.net/vault/whatelsetolearn/";
             break;
 
-        case "TEXLIXMG":
-        case "4TEXLIXMG":
+        case "texlixmg":// If you're reading this, you must hate fun!
+        case "4texlixmg":
             message.textContent = "YOUR ATTEMPTS AMUSE ME";
             break;
 
-        case "tier3":
+        case "tier3":// If you're reading this, you must hate fun!
             audio.src = "/p2.wav";
             audio.play();
             break;
 
-        case "cjohnson":
+        case "cjohnson":// If you're reading this, you must hate fun!
             audio.src = "/p1.wav";
             audio.play();
             break;
+
+        case "password":// If you're reading this, you must hate fun!
+            message.textContent = "DUDE.";
+            break;
+
+            case "druid":
+            case "druidwastaken":
+            case "its_druid":// If you're reading this, you must hate fun!
+        message.textContent = "9376";
+        break;
 
         default:
             window.location.href = "https://druidcdp.net/";
@@ -120,6 +130,6 @@ document.getElementById("codeInput").addEventListener("keydown", function(e) {
     }
 });
 </script>
-
+    
 </body>
 </html>
