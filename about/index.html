@@ -105,24 +105,22 @@ I wanted to try learning the software myself, so with practice and some help fro
     position: relative;
     border: 2px solid #EDAD0B;
     
-    /* Root relative path fixes image breaking when hosted on your domain */
-    background-image: url('/checker.png');
+    background-image: url('https://githubusercontent.com');
     background-repeat: repeat;
     
-    /* Scaled down to prevent blurry scaling on pattern grids */
-    background-size: 100px 100px;
+    background-size: 16px 16px; 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
     
-    /* Smooth, uniform velocity across all modern browsers */
-    animation: diagonalMove 12s linear infinite;
+    animation: diagonalMove 3s linear infinite;
   }
 
-  /* Keyframe mapping must perfectly match your background-size configuration */
   @keyframes diagonalMove {
     0% {
       background-position: 0px 0px;
     }
     100% {
-      background-position: 100px 100px; 
+      background-position: 16px 16px; 
     }
   }
 
@@ -132,7 +130,7 @@ I wanted to try learning the software myself, so with practice and some help fro
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.8); 
+    background: rgba(0, 0, 0, 0.85); 
     font-family: Arial, sans-serif;
     font-size: 18px;
     line-height: 1.5;
@@ -153,6 +151,7 @@ I wanted to try learning the software myself, so with practice and some help fro
     color: #FFF3B0;
   }
 </style>
+
 
   HTML (Copy and paste):
   <pre><code>
