@@ -84,66 +84,75 @@ I wanted to try learning the software myself, so with practice and some help fro
   [Media] created by "Jonathan CDP" aka "Druid", who is credited here: https://druidcdp.net"
   </code></pre><br><br>
 
-  or on a website you can use this neat html embed (though you can use the other option instead):<br><br>
+  Or on a website, you can use this neat html embed (though you can use the other option instead):<br><br>
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    
-    .looping-container {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      margin: 40px auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      position: relative;
-      
-      background-image: url('/checker.png');
-      background-repeat: repeat;
-      background-size: 200px 200px; 
-      
-      animation: diagonalMove 10s linear infinite;
-    }
-
-    @keyframes diagonalMove {
-      0% {
-        background-position: 0px 0px;
-      }
-      100% {
-
-        background-position: 200px 200px; 
-      }
-    }
-
-    .container-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.8);
-      font-family: sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-
-
-  <div class="looping-container">
-    <div class="container-content">
-      Some part(s) on this page were created by Jonathan CDP (AKA Its_Druid)!<br>Find out more at <a href="https://druidcdp.net">www.druidcdp.net</a>
-    </div>
+<div class="looping-container">
+  <div class="container-content">
+    <p>Some part(s) on this page were created by <strong>Jonathan CDP (AKA Its_Druid)</strong>!<br>
+    Find out more at <a href="https://druidcdp.net" target="_blank">www.druidcdp.net</a></p>
   </div>
+</div>
 
-</body>
-</html>
+<style>
+  .looping-container {
+    width: 100%;
+    max-width: 600px;
+    height: 250px;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    position: relative;
+    border: 2px solid #EDAD0B;
+    
+    /* Root relative path fixes image breaking when hosted on your domain */
+    background-image: url('/checker.png');
+    background-repeat: repeat;
+    
+    /* Scaled down to prevent blurry scaling on pattern grids */
+    background-size: 100px 100px;
+    
+    /* Smooth, uniform velocity across all modern browsers */
+    animation: diagonalMove 12s linear infinite;
+  }
+
+  /* Keyframe mapping must perfectly match your background-size configuration */
+  @keyframes diagonalMove {
+    0% {
+      background-position: 0px 0px;
+    }
+    100% {
+      background-position: 100px 100px; 
+    }
+  }
+
+  .container-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8); 
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #EDAD0B;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .container-content a {
+    color: #FFD54A;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease;
+  }
+
+  .container-content a:hover {
+    color: #FFF3B0;
+  }
+</style>
 
   HTML (Copy and paste):
   <pre><code>
