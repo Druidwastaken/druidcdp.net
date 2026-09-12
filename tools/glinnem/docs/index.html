@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,13 +25,14 @@
     }
 
     /* =========================
-       SIDEBAR
+       LEFT SIDEBAR
        ========================= */
 
     .sidebar {
       position: fixed;
       left: 0;
       top: 0;
+
       width: 240px;
       height: 100vh;
 
@@ -45,44 +45,60 @@
     }
 
     .sidebar-logo {
+      display: block;
+
       width: 100%;
       max-width: 180px;
       height: auto;
-      display: block;
 
       margin: 0 auto 30px;
     }
 
     .sidebar-title {
       color: #EDAD0B;
+
       font-size: 0.8rem;
       letter-spacing: 2px;
-      margin-bottom: 10px;
       text-transform: uppercase;
+
+      margin-bottom: 15px;
     }
 
-    .tab {
+    details {
+      margin-bottom: 5px;
+    }
+
+    summary {
+      cursor: pointer;
+
+      color: #EDAD0B;
+
+      padding: 9px 10px;
+
+      font-size: 1rem;
+
+      list-style-position: inside;
+    }
+
+    summary:hover {
+      background: #111;
+    }
+
+    .nav-link {
       display: block;
 
-      padding: 10px 12px;
-      margin-bottom: 3px;
+      padding: 8px 10px 8px 28px;
 
       color: #aaa;
       text-decoration: none;
 
       border-left: 2px solid transparent;
 
-      transition: 0.15s;
+      font-size: 0.95rem;
     }
 
-    .tab:hover {
+    .nav-link:hover {
       color: #EDAD0B;
-      background: #111;
-    }
-
-    .tab.active {
-      color: #EDAD0B;
-      border-left: 2px solid #EDAD0B;
       background: #111;
     }
 
@@ -92,14 +108,16 @@
 
     .content {
       margin-left: 240px;
+      margin-right: 210px;
 
       max-width: 900px;
 
-      padding: 60px 70px;
+      padding: 60px 60px;
     }
 
     h1 {
       color: #EDAD0B;
+
       font-size: 2.5rem;
       letter-spacing: 2px;
 
@@ -109,6 +127,7 @@
 
     h2 {
       color: #EDAD0B;
+
       font-size: 1.6rem;
 
       margin-top: 55px;
@@ -117,6 +136,7 @@
 
     h3 {
       color: #EDAD0B;
+
       font-size: 1.1rem;
 
       margin-top: 35px;
@@ -134,7 +154,9 @@
     code {
       color: #EDAD0B;
       background: #111;
+
       padding: 2px 5px;
+
       border-radius: 3px;
     }
 
@@ -143,8 +165,8 @@
       border: 1px solid #333;
 
       padding: 18px;
-      overflow-x: auto;
 
+      overflow-x: auto;
       line-height: 1.5;
     }
 
@@ -154,24 +176,75 @@
       color: #ccc;
     }
 
-    .warning {
-      border-left: 3px solid #EDAD0B;
-      background: #0b0b0b;
-
-      padding: 15px 18px;
-      margin: 25px 0;
-    }
-
     .version {
       color: #777;
       font-size: 0.9rem;
     }
 
     /* =========================
+       RIGHT PAGE NAVIGATION
+       ========================= */
+
+    .page-nav {
+      position: fixed;
+
+      right: 0;
+      top: 0;
+
+      width: 210px;
+      height: 100vh;
+
+      padding: 60px 25px;
+
+      border-left: 1px solid #333;
+
+      background: #050505;
+    }
+
+    .page-nav-title {
+      color: #EDAD0B;
+
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .page-nav a {
+      display: block;
+
+      color: #777;
+
+      text-decoration: none;
+
+      font-size: 0.9rem;
+
+      line-height: 1.4;
+
+      margin-bottom: 10px;
+    }
+
+    .page-nav a:hover {
+      color: #EDAD0B;
+    }
+
+    /* =========================
        MOBILE
        ========================= */
 
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
+
+      .page-nav {
+        display: none;
+      }
+
+      .content {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 650px) {
 
       .sidebar {
         position: static;
@@ -183,12 +256,9 @@
         border-bottom: 1px solid #333;
       }
 
-      .sidebar-logo {
-        max-width: 160px;
-      }
-
       .content {
         margin-left: 0;
+
         padding: 40px 25px;
       }
     }
@@ -197,7 +267,10 @@
 
 <body>
 
-  <!-- LEFT NAVIGATION -->
+
+  <!-- =========================
+       DOCUMENTATION NAVIGATION
+       ========================= -->
 
   <aside class="sidebar">
 
@@ -207,252 +280,232 @@
       Documentation
     </div>
 
-    <a class="tab active" href="#introduction">
-      Introduction
-    </a>
 
-    <a class="tab" href="#installation">
-      Installation
-    </a>
+    <!-- 2D -->
 
-    <a class="tab" href="#getting-started">
-      Getting Started
-    </a>
+    <details>
+      <summary>2D</summary>
 
-    <a class="tab" href="#editor">
-      Editor
-    </a>
+      <a class="nav-link" href="2d/index.html">
+        Overview
+      </a>
 
-    <a class="tab" href="#2d">
-      2D Development
-    </a>
+      <a class="nav-link" href="2d/sprites.html">
+        Sprites
+      </a>
 
-    <a class="tab" href="#3d">
-      3D Development
-    </a>
+      <a class="nav-link" href="2d/animation.html">
+        Animation
+      </a>
 
-    <a class="tab" href="#scripting">
-      Scripting
-    </a>
+      <a class="nav-link" href="2d/index.html#objects">
+        Objects
+      </a>
 
-    <a class="tab" href="#maps">
-      Maps
-    </a>
+    </details>
 
-    <a class="tab" href="#exporting">
-      Exporting
-    </a>
 
-    <a class="tab" href="#reference">
-      Reference
-    </a>
+    <!-- 3D -->
+
+    <details>
+      <summary>3D</summary>
+
+      <a class="nav-link" href="3d/index.html">
+        Overview
+      </a>
+
+      <a class="nav-link" href="3d/shotgun.html">
+        Shotgun
+      </a>
+
+      <a class="nav-link" href="3d/entities.html">
+        Entities
+      </a>
+
+      <a class="nav-link" href="3d/index.html#geometry">
+        Geometry
+      </a>
+
+    </details>
+
+
+    <!-- MISC -->
+
+    <details>
+      <summary>Misc.</summary>
+
+      <a class="nav-link" href="misc/index.html">
+        Overview
+      </a>
+
+      <a class="nav-link" href="misc/game-properties.html">
+        Game Properties
+      </a>
+
+      <a class="nav-link" href="misc/physics.html">
+        Physics Engine
+      </a>
+
+      <a class="nav-link" href="misc/functions.html">
+        Functions
+      </a>
+
+    </details>
 
   </aside>
 
 
-  <!-- MAIN DOCUMENTATION -->
+  <!-- =========================
+       MAIN DOCUMENT
+       ========================= -->
 
   <main class="content">
 
-    <section id="introduction">
+    <h1>Glinnem Documentation</h1>
 
-      <h1>Glinnem Documentation</h1>
+    <div class="version">
+      Version 1.0
+    </div>
 
-      <div class="version">
-        Version 1.0
-      </div>
 
-      <p>
-        Welcome to the official Glinnem documentation.
-      </p>
+    <h2 id="introduction">
+      Introduction
+    </h2>
 
-      <p>
-        Glinnem is a free, heavy-weight game engine designed for
-        building and running video games. It supports both 2D and 3D
-        development and is written entirely in C++17.
-      </p>
+    <p>
+      Welcome to the official Glinnem documentation.
+    </p>
 
-      <p>
-        This documentation covers the installation, editor,
-        development workflow, rendering systems, maps, and other
-        features of Glinnem.
-      </p>
+    <p>
+      Glinnem is a free, heavy-weight game engine designed for
+      building and running video games. It supports both 2D and
+      3D development and is written entirely in C++17.
+    </p>
 
-    </section>
+    <p>
+      This documentation contains information about Glinnem's
+      development tools, rendering systems, game systems,
+      file formats, and workflow.
+    </p>
 
 
-    <section id="installation">
+    <h2 id="getting-started">
+      Getting Started
+    </h2>
 
-      <h2>Installation</h2>
+    <p>
+      New to Glinnem? Start here.
+    </p>
 
-      <p>
-        Glinnem is currently distributed for Windows.
-        Download the latest version and extract it to a location
-        of your choice.
-      </p>
+    <p>
+      Install Glinnem, create a project, and open the editor.
+      From there, you can begin creating your game.
+    </p>
 
-      <div class="warning">
-        Glinnem version 1.0 is currently intended for Windows
-        development.
-      </div>
 
-    </section>
+    <h3 id="installation">
+      Installation
+    </h3>
 
+    <p>
+      Glinnem is currently distributed for Windows.
+      Download the latest version and extract it to a location
+      of your choice.
+    </p>
 
-    <section id="getting-started">
 
-      <h2>Getting Started</h2>
+    <h3 id="project-structure">
+      Project Structure
+    </h3>
 
-      <p>
-        After installing Glinnem, launch the editor to create your
-        first project.
-      </p>
-
-      <h3>Creating a project</h3>
-
-      <p>
-        Select <code>File &gt; New</code> from the main menu.
-        Glinnem will create the required project structure.
-      </p>
-
-    </section>
-
-
-    <section id="editor">
-
-      <h2>Editor</h2>
-
-      <p>
-        The Glinnem editor provides tools for creating and managing
-        game content.
-      </p>
-
-      <p>
-        The editor is divided into several areas, including the
-        2D editor, 3D editor, project tools, and configuration
-        settings.
-      </p>
-
-    </section>
-
-
-    <section id="2d">
-
-      <h2>2D Development</h2>
-
-      <p>
-        Glinnem provides support for developing traditional
-        two-dimensional games.
-      </p>
-
-      <p>
-        2D projects can use sprites, textures, objects, and other
-        resources to construct a game world.
-      </p>
-
-    </section>
-
-
-    <section id="3d">
-
-      <h2>3D Development</h2>
-
-      <p>
-        Glinnem includes a 3D renderer for creating three-dimensional
-        games and environments.
-      </p>
-
-      <h3>Geometry</h3>
-
-      <p>
-        3D geometry can be constructed from meshes and other
-        supported geometry types.
-      </p>
-
-      <pre><code>// Example
-
-CreateCube();
-CreateSphere();
-CreateTriangle();
-</code></pre>
-
-    </section>
-
-
-    <section id="scripting">
-
-      <h2>Scripting</h2>
-
-      <p>
-        Game logic can be implemented using the systems provided
-        by Glinnem.
-      </p>
-
-      <p>
-        This section will contain information about entities,
-        game logic, input, events, and other runtime systems.
-      </p>
-
-    </section>
-
-
-    <section id="maps">
-
-      <h2>Maps</h2>
-
-      <p>
-        Glinnem uses its own map format for storing game
-        environments and geometry.
-      </p>
-
-      <p>
-        Maps created using Shotgun can be loaded by Glinnem
-        during development and runtime.
-      </p>
-
-    </section>
-
-
-    <section id="exporting">
-
-      <h2>Exporting</h2>
-
-      <p>
-        When development is complete, a project can be compiled
-        into a playable game.
-      </p>
-
-      <p>
-        Refer to this section for information about distributing
-        games created with Glinnem.
-      </p>
-
-    </section>
-
-
-    <section id="reference">
-
-      <h2>Reference</h2>
-
-      <p>
-        This section contains technical reference material for
-        Glinnem's systems and APIs.
-      </p>
-
-      <h3>Project Structure</h3>
-
-      <pre><code>MyGame/
+    <pre><code>MyGame/
 ├── Assets/
 ├── Maps/
 ├── Scripts/
 └── Game.exe
 </code></pre>
 
-    </section>
+
+    <h2 id="editor">
+      The Editor
+    </h2>
+
+    <p>
+      The Glinnem editor provides the tools used to construct
+      and configure a game.
+    </p>
+
+    <p>
+      Documentation for the individual editor systems can be
+      found in the relevant sections of the navigation menu.
+    </p>
+
+
+    <h2 id="development">
+      Development
+    </h2>
+
+    <p>
+      Glinnem supports both 2D and 3D game development.
+      Choose a section from the navigation menu to learn more
+      about a particular system.
+    </p>
+
+
+    <h2 id="reference">
+      Reference
+    </h2>
+
+    <p>
+      Technical reference material, functions, properties,
+      file formats, and other lower-level information can be
+      found throughout the documentation.
+    </p>
 
   </main>
+
+
+  <!-- =========================
+       CURRENT PAGE NAVIGATION
+       ========================= -->
+
+  <aside class="page-nav">
+
+    <div class="page-nav-title">
+      On This Page
+    </div>
+
+    <a href="#introduction">
+      Introduction
+    </a>
+
+    <a href="#getting-started">
+      Getting Started
+    </a>
+
+    <a href="#installation">
+      Installation
+    </a>
+
+    <a href="#project-structure">
+      Project Structure
+    </a>
+
+    <a href="#editor">
+      The Editor
+    </a>
+
+    <a href="#development">
+      Development
+    </a>
+
+    <a href="#reference">
+      Reference
+    </a>
+
+  </aside>
+
 
 </body>
 
 </html>
-```
