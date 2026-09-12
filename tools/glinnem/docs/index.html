@@ -1,0 +1,458 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Glinnem Documentation</title>
+
+  <link rel="icon" href="/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       SIDEBAR
+       ========================= */
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+
+      background: #080808;
+      border-right: 1px solid #333;
+
+      padding: 30px 20px;
+
+      overflow-y: auto;
+    }
+
+    .sidebar-logo {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      display: block;
+
+      margin: 0 auto 30px;
+    }
+
+    .sidebar-title {
+      color: #EDAD0B;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .tab {
+      display: block;
+
+      padding: 10px 12px;
+      margin-bottom: 3px;
+
+      color: #aaa;
+      text-decoration: none;
+
+      border-left: 2px solid transparent;
+
+      transition: 0.15s;
+    }
+
+    .tab:hover {
+      color: #EDAD0B;
+      background: #111;
+    }
+
+    .tab.active {
+      color: #EDAD0B;
+      border-left: 2px solid #EDAD0B;
+      background: #111;
+    }
+
+    /* =========================
+       MAIN CONTENT
+       ========================= */
+
+    .content {
+      margin-left: 240px;
+
+      max-width: 900px;
+
+      padding: 60px 70px;
+    }
+
+    h1 {
+      color: #EDAD0B;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #EDAD0B;
+      font-size: 1.6rem;
+
+      margin-top: 55px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #EDAD0B;
+      font-size: 1.1rem;
+
+      margin-top: 35px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+
+    a {
+      color: #EDAD0B;
+    }
+
+    code {
+      color: #EDAD0B;
+      background: #111;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+
+    pre {
+      background: #080808;
+      border: 1px solid #333;
+
+      padding: 18px;
+      overflow-x: auto;
+
+      line-height: 1.5;
+    }
+
+    pre code {
+      padding: 0;
+      background: none;
+      color: #ccc;
+    }
+
+    .warning {
+      border-left: 3px solid #EDAD0B;
+      background: #0b0b0b;
+
+      padding: 15px 18px;
+      margin: 25px 0;
+    }
+
+    .version {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 700px) {
+
+      .sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+
+      .sidebar-logo {
+        max-width: 160px;
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LEFT NAVIGATION -->
+
+  <aside class="sidebar">
+
+    <img class="sidebar-logo" src="/glipost.png">
+
+    <div class="sidebar-title">
+      Documentation
+    </div>
+
+    <a class="tab active" href="#introduction">
+      Introduction
+    </a>
+
+    <a class="tab" href="#installation">
+      Installation
+    </a>
+
+    <a class="tab" href="#getting-started">
+      Getting Started
+    </a>
+
+    <a class="tab" href="#editor">
+      Editor
+    </a>
+
+    <a class="tab" href="#2d">
+      2D Development
+    </a>
+
+    <a class="tab" href="#3d">
+      3D Development
+    </a>
+
+    <a class="tab" href="#scripting">
+      Scripting
+    </a>
+
+    <a class="tab" href="#maps">
+      Maps
+    </a>
+
+    <a class="tab" href="#exporting">
+      Exporting
+    </a>
+
+    <a class="tab" href="#reference">
+      Reference
+    </a>
+
+  </aside>
+
+
+  <!-- MAIN DOCUMENTATION -->
+
+  <main class="content">
+
+    <section id="introduction">
+
+      <h1>Glinnem Documentation</h1>
+
+      <div class="version">
+        Version 1.0
+      </div>
+
+      <p>
+        Welcome to the official Glinnem documentation.
+      </p>
+
+      <p>
+        Glinnem is a free, heavy-weight game engine designed for
+        building and running video games. It supports both 2D and 3D
+        development and is written entirely in C++17.
+      </p>
+
+      <p>
+        This documentation covers the installation, editor,
+        development workflow, rendering systems, maps, and other
+        features of Glinnem.
+      </p>
+
+    </section>
+
+
+    <section id="installation">
+
+      <h2>Installation</h2>
+
+      <p>
+        Glinnem is currently distributed for Windows.
+        Download the latest version and extract it to a location
+        of your choice.
+      </p>
+
+      <div class="warning">
+        Glinnem version 1.0 is currently intended for Windows
+        development.
+      </div>
+
+    </section>
+
+
+    <section id="getting-started">
+
+      <h2>Getting Started</h2>
+
+      <p>
+        After installing Glinnem, launch the editor to create your
+        first project.
+      </p>
+
+      <h3>Creating a project</h3>
+
+      <p>
+        Select <code>File &gt; New</code> from the main menu.
+        Glinnem will create the required project structure.
+      </p>
+
+    </section>
+
+
+    <section id="editor">
+
+      <h2>Editor</h2>
+
+      <p>
+        The Glinnem editor provides tools for creating and managing
+        game content.
+      </p>
+
+      <p>
+        The editor is divided into several areas, including the
+        2D editor, 3D editor, project tools, and configuration
+        settings.
+      </p>
+
+    </section>
+
+
+    <section id="2d">
+
+      <h2>2D Development</h2>
+
+      <p>
+        Glinnem provides support for developing traditional
+        two-dimensional games.
+      </p>
+
+      <p>
+        2D projects can use sprites, textures, objects, and other
+        resources to construct a game world.
+      </p>
+
+    </section>
+
+
+    <section id="3d">
+
+      <h2>3D Development</h2>
+
+      <p>
+        Glinnem includes a 3D renderer for creating three-dimensional
+        games and environments.
+      </p>
+
+      <h3>Geometry</h3>
+
+      <p>
+        3D geometry can be constructed from meshes and other
+        supported geometry types.
+      </p>
+
+      <pre><code>// Example
+
+CreateCube();
+CreateSphere();
+CreateTriangle();
+</code></pre>
+
+    </section>
+
+
+    <section id="scripting">
+
+      <h2>Scripting</h2>
+
+      <p>
+        Game logic can be implemented using the systems provided
+        by Glinnem.
+      </p>
+
+      <p>
+        This section will contain information about entities,
+        game logic, input, events, and other runtime systems.
+      </p>
+
+    </section>
+
+
+    <section id="maps">
+
+      <h2>Maps</h2>
+
+      <p>
+        Glinnem uses its own map format for storing game
+        environments and geometry.
+      </p>
+
+      <p>
+        Maps created using Shotgun can be loaded by Glinnem
+        during development and runtime.
+      </p>
+
+    </section>
+
+
+    <section id="exporting">
+
+      <h2>Exporting</h2>
+
+      <p>
+        When development is complete, a project can be compiled
+        into a playable game.
+      </p>
+
+      <p>
+        Refer to this section for information about distributing
+        games created with Glinnem.
+      </p>
+
+    </section>
+
+
+    <section id="reference">
+
+      <h2>Reference</h2>
+
+      <p>
+        This section contains technical reference material for
+        Glinnem's systems and APIs.
+      </p>
+
+      <h3>Project Structure</h3>
+
+      <pre><code>MyGame/
+├── Assets/
+├── Maps/
+├── Scripts/
+└── Game.exe
+</code></pre>
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
+```
