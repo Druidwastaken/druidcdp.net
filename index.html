@@ -1,513 +1,135 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Glinnem Documentation</title>
-
-  <link rel="icon" href="/icon.png">
+  <link rel="icon" href="icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Druidcdp.net</title>
+
+  <meta name="title" content="Welcome to Druidcdp.net!">
+  <meta name="description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Welcome to Druidcdp.net!">
+  <meta property="og:description" content="Rolls off the tongue huh? Play games, use tools and explore projects!">
+  <meta property="og:url" content="https://www.druidcdp.net">
+
+  <meta name="theme-color" content="#EDAD0B">
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      margin: 0;
-      background: #000;
-      color: #ccc;
-      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      font-family: Roboto;
     }
 
-    /* =========================
-       LEFT SIDEBAR
-       ========================= */
+    #container {
+      width: 700px;
+      margin: auto;
+      margin-top: 20px;
+      background: #1e1e1e;
+      border: 4px solid #EDAD0B;
+      padding: 20px;
+    }
 
-    .sidebar {
-      position: fixed;
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .btn {
+      display: block;
+      padding: 15px;
+      background: #2a2a2a;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-left: 5px solid #EDAD0B;
+      position: relative;
+    }
+
+    .btn:hover {
+      background: #3a3a3a;
+    }
+
+    .disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .disabled img {
+      position: absolute;
+      top: 0;
       left: 0;
-      top: 0;
-
-      width: 240px;
-      height: 100vh;
-
-      background: #080808;
-      border-right: 1px solid #333;
-
-      padding: 30px 20px;
-
-      overflow-y: auto;
-    }
-
-    .sidebar-logo {
-      display: block;
-
       width: 100%;
-      max-width: 180px;
-      height: auto;
-
-      margin: 0 auto 30px;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
     }
 
-    .sidebar-title {
-      color: #EDAD0B;
-
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-
-      margin-bottom: 15px;
+    .disabled span {
+      position: relative;
+      z-index: 2;
     }
 
-    details {
-      margin-bottom: 5px;
+    #ad {
+      width: 700px;
+      margin: 15px auto 30px auto;
+      text-align: center;
     }
 
-    summary {
-      cursor: pointer;
-
-      color: #EDAD0B;
-
-      padding: 9px 10px;
-
-      font-size: 1rem;
-
-      list-style-position: inside;
-    }
-
-    summary:hover {
-      background: #111;
-    }
-
-    .nav-link {
-      display: block;
-
-      padding: 8px 10px 8px 28px;
-
-      color: #aaa;
-      text-decoration: none;
-
-      border-left: 2px solid transparent;
-
-      font-size: 0.95rem;
-    }
-
-    .nav-link:hover {
-      color: #EDAD0B;
-      background: #111;
-    }
-
-    /* =========================
-       MAIN CONTENT
-       ========================= */
-
-    .content {
-      margin-left: 240px;
-      margin-right: 210px;
-
-      max-width: 900px;
-
-      padding: 60px 60px;
-    }
-
-    h1 {
-      color: #EDAD0B;
-
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      color: #EDAD0B;
-
-      font-size: 1.6rem;
-
-      margin-top: 55px;
-      margin-bottom: 15px;
-    }
-
-    h3 {
-      color: #EDAD0B;
-
-      font-size: 1.1rem;
-
-      margin-top: 35px;
-    }
-
-    p {
-      line-height: 1.7;
-      margin: 12px 0;
-    }
-
-    a {
-      color: #EDAD0B;
-    }
-
-    code {
-      color: #EDAD0B;
-      background: #111;
-
-      padding: 2px 5px;
-
-      border-radius: 3px;
-    }
-
-    pre {
-      background: #080808;
-      border: 1px solid #333;
-
-      padding: 18px;
-
-      overflow-x: auto;
-      line-height: 1.5;
-    }
-
-    pre code {
-      padding: 0;
-      background: none;
-      color: #ccc;
-    }
-
-    .version {
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    /* =========================
-       RIGHT PAGE NAVIGATION
-       ========================= */
-
-    .page-nav {
-      position: fixed;
-
-      right: 0;
-      top: 0;
-
-      width: 210px;
-      height: 100vh;
-
-      padding: 60px 25px;
-
-      border-left: 1px solid #333;
-
-      background: #050505;
-    }
-
-    .page-nav-title {
-      color: #EDAD0B;
-
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-
-      margin-bottom: 15px;
-    }
-
-    .page-nav a {
-      display: block;
-
-      color: #777;
-
-      text-decoration: none;
-
-      font-size: 0.9rem;
-
-      line-height: 1.4;
-
-      margin-bottom: 10px;
-    }
-
-    .page-nav a:hover {
-      color: #EDAD0B;
-    }
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 900px) {
-
-      .page-nav {
-        display: none;
-      }
-
-      .content {
-        margin-right: 0;
-      }
-    }
-
-    @media (max-width: 650px) {
-
-      .sidebar {
-        position: static;
-
-        width: 100%;
-        height: auto;
-
-        border-right: none;
-        border-bottom: 1px solid #333;
-      }
-
-      .content {
-        margin-left: 0;
-
-        padding: 40px 25px;
-      }
+    #ad img {
+      width: 100%;
+      max-width: 650px;
     }
   </style>
 </head>
 
 <body>
 
+  <center>
+    
+    <span style="font-family: Roboto; color: #2e2e2e;">
+      <a href="about/">About this site</a>
+    </span>
+  </center>
 
-  <!-- =========================
-       DOCUMENTATION NAVIGATION
-       ========================= -->
+  <div id="container">
 
-  <aside class="sidebar">
+    <div id="grid">
 
-    <img class="sidebar-logo" src="/glipost.png">
+      <div class="btn disabled">
+        <img src="cautiontape.png">
+        <span>Zero</span>
+      </div>
 
-    <div class="sidebar-title">
-      Documentation
+      <a class="btn" href="/flash-games">Flash Games</a>
+
+      <a class="btn" href="/channels">Channels</a>
+
+      <a class="btn" href="/tools">Tools</a>
+
+      <a class="btn" href="/misc">Misc.</a>
+
+      <a class="btn" href="/faqs">
+        <span>FAQs</span>
+      </a>
+
     </div>
 
-
-    <!-- 2D -->
-
-    <details>
-      <summary>2D</summary>
-
-      <a class="nav-link" href="2d/index.html">
-        Overview
-      </a>
-
-      <a class="nav-link" href="2d/sprites.html">
-        Sprites
-      </a>
-
-      <a class="nav-link" href="2d/animation.html">
-        Animation
-      </a>
-
-      <a class="nav-link" href="2d/index.html#objects">
-        Objects
-      </a>
-
-    </details>
-
-
-    <!-- 3D -->
-
-    <details>
-      <summary>3D</summary>
-
-      <a class="nav-link" href="3d/index.html">
-        Overview
-      </a>
-
-      <a class="nav-link" href="3d/shotgun.html">
-        Shotgun
-      </a>
-
-      <a class="nav-link" href="3d/entities.html">
-        Entities
-      </a>
-
-      <a class="nav-link" href="3d/index.html#geometry">
-        Geometry
-      </a>
-
-    </details>
-
-
-    <!-- MISC -->
-
-    <details>
-      <summary>Misc.</summary>
-
-      <a class="nav-link" href="misc/index.html">
-        Overview
-      </a>
-
-      <a class="nav-link" href="misc/game-properties.html">
-        Game Properties
-      </a>
-
-      <a class="nav-link" href="misc/physics.html">
-        Physics Engine
-      </a>
-
-      <a class="nav-link" href="misc/functions.html">
-        Functions
-      </a>
-
-    </details>
-
-  </aside>
-
-
-  <!-- =========================
-       MAIN DOCUMENT
-       ========================= -->
-
-  <main class="content">
-
-    <h1>Glinnem Documentation</h1>
-
-    <div class="version">
-      Version 1.0
-    </div>
-
-
-    <h2 id="introduction">
-      Introduction
-    </h2>
-
-    <p>
-      Welcome to the official Glinnem documentation.
-    </p>
-
-    <p>
-      Glinnem is a free, heavy-weight game engine designed for
-      building and running video games. It supports both 2D and
-      3D development and is written entirely in C++17.
-    </p>
-
-    <p>
-      This documentation contains information about Glinnem's
-      development tools, rendering systems, game systems,
-      file formats, and workflow.
-    </p>
-
-
-    <h2 id="getting-started">
-      Getting Started
-    </h2>
-
-    <p>
-      New to Glinnem? Start here.
-    </p>
-
-    <p>
-      Install Glinnem, create a project, and open the editor.
-      From there, you can begin creating your game.
-    </p>
-
-
-    <h3 id="installation">
-      Installation
-    </h3>
-
-    <p>
-      Glinnem is currently distributed for Windows.
-      Download the latest version and extract it to a location
-      of your choice.
-    </p>
-
-
-    <h3 id="project-structure">
-      Project Structure
-    </h3>
-
-    <pre><code>MyGame/
-├── Assets/
-├── Maps/
-├── Scripts/
-└── Game.exe
-</code></pre>
-
-
-    <h2 id="editor">
-      The Editor
-    </h2>
-
-    <p>
-      The Glinnem editor provides the tools used to construct
-      and configure a game.
-    </p>
-
-    <p>
-      Documentation for the individual editor systems can be
-      found in the relevant sections of the navigation menu.
-    </p>
-
-
-    <h2 id="development">
-      Development
-    </h2>
-
-    <p>
-      Glinnem supports both 2D and 3D game development.
-      Choose a section from the navigation menu to learn more
-      about a particular system.
-    </p>
-
-
-    <h2 id="reference">
-      Reference
-    </h2>
-
-    <p>
-      Technical reference material, functions, properties,
-      file formats, and other lower-level information can be
-      found throughout the documentation.
-    </p>
-
-  </main>
-
-
-  <!-- =========================
-       CURRENT PAGE NAVIGATION
-       ========================= -->
-
-  <aside class="page-nav">
-
-    <div class="page-nav-title">
-      On This Page
-    </div>
-
-    <a href="#introduction">
-      Introduction
-    </a>
-
-    <a href="#getting-started">
-      Getting Started
-    </a>
-
-    <a href="#installation">
-      Installation
-    </a>
-
-    <a href="#project-structure">
-      Project Structure
-    </a>
-
-    <a href="#editor">
-      The Editor
-    </a>
-
-    <a href="#development">
-      Development
-    </a>
-
-    <a href="#reference">
-      Reference
-    </a>
-
-  </aside>
-
+  </div>
+
+  <div id="ad">
+    <img
+      src="fakead.png"
+      style="cursor:pointer;"
+      onclick="window.location.href='ads/'"
+    >
+  </div>
 
 </body>
-
 </html>
-```
