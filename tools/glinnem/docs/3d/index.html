@@ -393,4 +393,113 @@
 
     <p>
       If a map is already loaded, select <strong>Edit Map</strong>
-      from the same Actions pane
+      from the same Actions panel to open it in Shotgun.
+    </p>
+
+    <p>
+      If you already have a compiled <code>.gmf</code> file,
+      select <strong>Load Map</strong> to load it into Glinnem.
+    </p>
+
+
+    <h2 id="entities">
+      Entities
+    </h2>
+
+    <p>
+      Entities are objects that provide functionality to your
+      game world. Glinnem provides several built-in entity types:
+    </p>
+
+    <pre><code>StaticEntity
+PhysicsEntity
+NPC
+DNPC
+ParticleEmitter
+SoundEmitter
+LightEmitter
+Billboard
+Trigger
+Player
+Spawner
+ScriptedCamera
+Vehicle
+HintNode
+Custom</code></pre>
+
+    <p>
+      Each of these entities performs a different function and
+      can be used to bring your game world to life.
+    </p>
+
+
+    <h2 id="camera">
+      Camera
+    </h2>
+
+    <p>
+      By default, 3D games use the player's camera as their
+      primary camera. The <strong>Player</strong> entity can be
+      configured to use a third-person camera instead of the
+      default first-person view.
+    </p>
+
+    <p>
+      A separate <strong>Camera</strong> object can be used when
+      you need to control the camera independently from the
+      player.
+    </p>
+
+    <p>
+      A Camera object only overrides the player's camera when
+      <strong>Active</strong> is enabled.
+    </p>
+
+    <p>
+      If multiple cameras are active at the same time, the camera
+      with the highest <strong>Priority</strong> is used. The
+      Player camera has a default priority of <code>0</code>.
+    </p>
+
+    <p>
+      Cameras can also be scripted for things such as cutscenes.
+      The <strong>PlayerControl</strong> setting determines whether
+      the player can move while a scripted camera is active.
+    </p>
+
+    <p>
+      Individual player movement keys can also be changed through
+      the Player object.
+    </p>
+
+  </main>
+
+
+  <!-- RIGHT SIDEBAR -->
+
+  <aside class="page-nav">
+
+    <div class="page-nav-title">
+      On This Page
+    </div>
+
+    <a href="#overview">
+      Overview
+    </a>
+
+    <a href="#shotgun">
+      Shotgun
+    </a>
+
+    <a href="#entities">
+      Entities
+    </a>
+
+    <a href="#camera">
+      Camera
+    </a>
+
+  </aside>
+
+</body>
+</html>
