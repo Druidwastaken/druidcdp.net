@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-
   <title>Druidcdp.net - Glinnem Documentation</title>
 
   <link rel="icon" href="/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -23,12 +24,15 @@
       font-family: Arial, sans-serif;
     }
 
-    /* LEFT SIDEBAR */
+    /* =========================
+       LEFT SIDEBAR
+       ========================= */
 
     .sidebar {
       position: fixed;
       left: 0;
       top: 0;
+
       width: 240px;
       height: 100vh;
 
@@ -36,11 +40,13 @@
       border-right: 1px solid #333;
 
       padding: 30px 20px;
+
       overflow-y: auto;
     }
 
     .sidebar-logo {
       display: block;
+
       width: 100%;
       max-width: 180px;
       height: auto;
@@ -50,6 +56,7 @@
 
     .sidebar-title {
       color: #EDAD0B;
+
       font-size: 0.8rem;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -95,7 +102,9 @@
       background: #111;
     }
 
-    /* MAIN CONTENT */
+    /* =========================
+       MAIN CONTENT
+       ========================= */
 
     .content {
       margin-left: 240px;
@@ -131,6 +140,7 @@
       font-size: 1.1rem;
 
       margin-top: 35px;
+      margin-bottom: 15px;
     }
 
     p {
@@ -144,7 +154,6 @@
 
     code {
       color: #EDAD0B;
-
       background: #111;
 
       padding: 2px 5px;
@@ -154,7 +163,6 @@
 
     pre {
       background: #080808;
-
       border: 1px solid #333;
 
       padding: 18px;
@@ -162,6 +170,8 @@
       overflow-x: auto;
 
       line-height: 1.5;
+
+      margin: 20px 0;
     }
 
     pre code {
@@ -175,7 +185,9 @@
       font-size: 0.9rem;
     }
 
-    /* RIGHT PAGE NAVIGATION */
+    /* =========================
+       RIGHT PAGE NAVIGATION
+       ========================= */
 
     .page-nav {
       position: fixed;
@@ -197,7 +209,6 @@
       color: #EDAD0B;
 
       font-size: 0.75rem;
-
       letter-spacing: 2px;
       text-transform: uppercase;
 
@@ -212,6 +223,7 @@
       text-decoration: none;
 
       font-size: 0.9rem;
+
       line-height: 1.4;
 
       margin-bottom: 10px;
@@ -221,9 +233,12 @@
       color: #EDAD0B;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 900px) {
+
       .page-nav {
         display: none;
       }
@@ -234,6 +249,7 @@
     }
 
     @media (max-width: 650px) {
+
       .sidebar {
         position: static;
 
@@ -255,80 +271,87 @@
 
 <body>
 
-  <!-- LEFT SIDEBAR -->
+  <!-- =========================
+       DOCUMENTATION NAVIGATION
+       ========================= -->
 
   <aside class="sidebar">
 
-    <img
-      class="sidebar-logo"
-      src="/GLINNEM.png"
-      alt="Glinnem"
-    >
+    <img class="sidebar-logo" src="/GLINNEM.png">
 
     <div class="sidebar-title">
       Documentation
     </div>
 
+
+    <!-- 2D -->
+
     <details>
       <summary>2D</summary>
 
-      <a class="nav-link" href="/tools/glinnem/docs/2d">
+      <a class="nav-link" href="tools/glinnem/docs/2d">
         Overview
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/2d/sprites">
+      <a class="nav-link" href="tools/glinnem/docs/2d/sprites">
         Sprites
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/2d/animation">
+      <a class="nav-link" href="tools/glinnem/docs/2d/animation">
         Animation
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/2d/objects">
+      <a class="nav-link" href="tools/glinnem/docs/2d/objects">
         Objects
       </a>
     </details>
 
+
+    <!-- 3D -->
+
     <details>
       <summary>3D</summary>
 
-      <a class="nav-link" href="/tools/glinnem/docs/3d">
+      <a class="nav-link" href="tools/glinnem/docs/3d">
         Overview
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/3d/shotgun">
+      <a class="nav-link" href="tools/glinnem/docs/3d/shotgun">
         Shotgun
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/3d/entities">
+      <a class="nav-link" href="tools/glinnem/docs/3d/entities">
         Entities
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/3d/camera">
+      <a class="nav-link" href="tools/glinnem/docs/3d/camera">
         Camera
       </a>
     </details>
 
+
+    <!-- MISC -->
+
     <details>
       <summary>Misc.</summary>
 
-      <a class="nav-link" href="/tools/glinnem/docs/misc">
+      <a class="nav-link" href="tools/glinnem/docs/misc">
         Overview
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/misc/game-properties">
+      <a class="nav-link" href="tools/glinnem/docs/misc/game-properties">
         Game Properties
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/misc/physics">
+      <a class="nav-link" href="tools/glinnem/docs/misc/physics">
         Physics Engine
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/misc/functions">
+      <a class="nav-link" href="tools/glinnem/docs/misc/functions">
         Functions
       </a>
 
-      <a class="nav-link" href="/tools/glinnem/docs/misc/editor">
+      <a class="nav-link" href="tools/glinnem/docs/misc/editor">
         Editor
       </a>
     </details>
@@ -336,7 +359,9 @@
   </aside>
 
 
-  <!-- MAIN CONTENT -->
+  <!-- =========================
+       MAIN DOCUMENT
+       ========================= -->
 
   <main class="content">
 
@@ -347,21 +372,12 @@
     </div>
 
 
-    <h2 id="overview">
+    <h2 id="introduction">
       Overview
     </h2>
 
     <p>
-      Glinnem supports both 3D and 2D game development.
-      The 3D editor was developed first, and provides tools
-      for creating maps, placing entities, setting up cameras,
-      and building the environment for your game.
-    </p>
-
-    <p>
-      This documentation provides an overview of the Glinnem
-      workflow and links to more detailed documentation for
-      individual systems.
+      Glinnem supports 3D editing as well as 2D, in fact it was developed first. This document will give a brief overview on the workflow on the 3D editor.
     </p>
 
 
@@ -370,45 +386,34 @@
     </h2>
 
     <p>
-      Shotgun is Glinnem's dedicated 3D map editor. It is used
-      to create and modify maps before they are compiled into
-      a <code>.gmf</code> file, also known as a Glinnem Map File.
+      In order to start building a 3D game, you need to make a map environment first.
     </p>
 
     <p>
-      To create a new map, make or open a 3D project in Glinnem
-      and select <strong>Create Map</strong> in the Actions panel.
-      This is the recommended method.
+      There are two ways to start making a map, you can:
     </p>
+
+    <ol>
+      <li>
+        Make a new (or open an existing) 3D project in Glinnem, and select "Create map" in the actions panel. (Recomended)
+      </li>
+
+      <li>
+        Open Shotgun.exe in your Glinnem bin directory, and follow the prompts.
+      </li>
+    </ol>
 
     <p>
-      Glinnem will create the required map files and allow you
-      to open the map in Shotgun.
-    </p>
-
-    <p>
-      Alternatively, you can open <code>Shotgun.exe</code> from
-      the Glinnem <code>bin</code> directory and follow the prompts.
-    </p>
-
-    <p>
-      If a map is already loaded, select <strong>Edit Map</strong>
-      from the same Actions panel to open it in Shotgun.
-    </p>
-
-    <p>
-      If you already have a compiled <code>.gmf</code> file,
-      select <strong>Load Map</strong> to load it into Glinnem.
+      If you already have a map loaded you can click "Edit map" in the same actions panel, or if you already have a compiled .gmf (Glinnem Map File) you can click "Load map" in the actions panel as well.
     </p>
 
 
-    <h2 id="entities">
+    <h3 id="entities">
       Entities
-    </h2>
+    </h3>
 
     <p>
-      Entities are objects that provide functionality to your
-      game world. Glinnem provides several built-in entity types:
+      Glinnem offers a range of entities that make your game interactive and functional. Here are a list of them:
     </p>
 
     <pre><code>StaticEntity
@@ -428,54 +433,32 @@ HintNode
 Custom</code></pre>
 
     <p>
-      Each of these entities performs a different function and
-      can be used to bring your game world to life.
+      Each of these entities do different things that bring your game to life.
     </p>
 
 
-    <h2 id="camera">
+    <h3 id="camera">
       Camera
-    </h2>
+    </h3>
 
     <p>
-      By default, 3D games use the player's camera as their
-      primary camera. The <strong>Player</strong> entity can be
-      configured to use a third-person camera instead of the
-      default first-person view.
+      By default, 3D games use a first person camera. in the player entity's properties, you can also set it to third person. When designing Glinnem, I wanted you to have full control over the game, so a camera object can fully bypass this system.
     </p>
 
     <p>
-      A separate <strong>Camera</strong> object can be used when
-      you need to control the camera independently from the
-      player.
+      Placing a camera object in your game does not automatically override the player camera, unless you set its "Active" Property. If there happens to be two active camera objects at once, the greater index of the "priority" property will take priority, the player object also has these properties but by default its priority is set to 0.
     </p>
 
     <p>
-      A Camera object only overrides the player's camera when
-      <strong>Active</strong> is enabled.
-    </p>
-
-    <p>
-      If multiple cameras are active at the same time, the camera
-      with the highest <strong>Priority</strong> is used. The
-      Player camera has a default priority of <code>0</code>.
-    </p>
-
-    <p>
-      Cameras can also be scripted for things such as cutscenes.
-      The <strong>PlayerControl</strong> setting determines whether
-      the player can move while a scripted camera is active.
-    </p>
-
-    <p>
-      Individual player movement keys can also be changed through
-      the Player object.
+      Cameras can be scripted to have any fuctionality you want. for things like cutscenes, you can adjust the PlayerControl property to set if the player can input movememnt while its active. If you want only certain keys to not be active you can manually adjust that inside the player object itself.
     </p>
 
   </main>
 
 
-  <!-- RIGHT SIDEBAR -->
+  <!-- =========================
+       CURRENT PAGE NAVIGATION
+       ========================= -->
 
   <aside class="page-nav">
 
@@ -483,8 +466,8 @@ Custom</code></pre>
       On This Page
     </div>
 
-    <a href="#overview">
-      Overview
+    <a href="#introduction">
+      Introduction
     </a>
 
     <a href="#shotgun">
@@ -501,5 +484,7 @@ Custom</code></pre>
 
   </aside>
 
+
 </body>
+
 </html>
