@@ -1,0 +1,398 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Druidcdp.net - Glinnem Documentation</title>
+
+  <link rel="icon" href="/icon.png">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    /* LEFT SIDEBAR */
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 240px;
+      height: 100vh;
+
+      background: #080808;
+      border-right: 1px solid #333;
+
+      padding: 30px 20px;
+      overflow-y: auto;
+    }
+
+    .sidebar-logo {
+      display: block;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+
+      margin: 0 auto 30px;
+    }
+
+    .sidebar-title {
+      color: #EDAD0B;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    details {
+      margin-bottom: 5px;
+    }
+
+    summary {
+      cursor: pointer;
+
+      color: #EDAD0B;
+
+      padding: 9px 10px;
+
+      font-size: 1rem;
+
+      list-style-position: inside;
+    }
+
+    summary:hover {
+      background: #111;
+    }
+
+    .nav-link {
+      display: block;
+
+      padding: 8px 10px 8px 28px;
+
+      color: #aaa;
+      text-decoration: none;
+
+      border-left: 2px solid transparent;
+
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: #EDAD0B;
+      background: #111;
+    }
+
+    /* MAIN CONTENT */
+
+    .content {
+      margin-left: 240px;
+      margin-right: 210px;
+
+      max-width: 900px;
+
+      padding: 60px;
+    }
+
+    h1 {
+      color: #EDAD0B;
+
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #EDAD0B;
+
+      font-size: 1.6rem;
+
+      margin-top: 55px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #EDAD0B;
+
+      font-size: 1.1rem;
+
+      margin-top: 35px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+
+    a {
+      color: #EDAD0B;
+    }
+
+    code {
+      color: #EDAD0B;
+
+      background: #111;
+
+      padding: 2px 5px;
+
+      border-radius: 3px;
+    }
+
+    pre {
+      background: #080808;
+
+      border: 1px solid #333;
+
+      padding: 18px;
+
+      overflow-x: auto;
+
+      line-height: 1.5;
+    }
+
+    pre code {
+      padding: 0;
+      background: none;
+      color: #ccc;
+    }
+
+    .version {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* RIGHT PAGE NAVIGATION */
+
+    .page-nav {
+      position: fixed;
+
+      right: 0;
+      top: 0;
+
+      width: 210px;
+      height: 100vh;
+
+      padding: 60px 25px;
+
+      border-left: 1px solid #333;
+
+      background: #050505;
+    }
+
+    .page-nav-title {
+      color: #EDAD0B;
+
+      font-size: 0.75rem;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .page-nav a {
+      display: block;
+
+      color: #777;
+
+      text-decoration: none;
+
+      font-size: 0.9rem;
+      line-height: 1.4;
+
+      margin-bottom: 10px;
+    }
+
+    .page-nav a:hover {
+      color: #EDAD0B;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .page-nav {
+        display: none;
+      }
+
+      .content {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+
+      .content {
+        margin-left: 0;
+
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LEFT SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <img
+      class="sidebar-logo"
+      src="/GLINNEM.png"
+      alt="Glinnem"
+    >
+
+    <div class="sidebar-title">
+      Documentation
+    </div>
+
+    <details>
+      <summary>2D</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/sprites">
+        Sprites
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/animation">
+        Animation
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/objects">
+        Objects
+      </a>
+    </details>
+
+    <details>
+      <summary>3D</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/shotgun">
+        Shotgun
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/entities">
+        Entities
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/camera">
+        Camera
+      </a>
+    </details>
+
+    <details>
+      <summary>Misc.</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/game-properties">
+        Game Properties
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/physics">
+        Physics Engine
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/functions">
+        Functions
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/editor">
+        Editor
+      </a>
+    </details>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+
+  <main class="content">
+
+    <h1>Glinnem Documentation</h1>
+
+    <div class="version">
+      Version 1.0
+    </div>
+
+
+    <h2 id="overview">
+      Overview
+    </h2>
+
+    <p>
+      Glinnem supports both 3D and 2D game development.
+      The 3D editor was developed first, and provides tools
+      for creating maps, placing entities, setting up cameras,
+      and building the environment for your game.
+    </p>
+
+    <p>
+      This documentation provides an overview of the Glinnem
+      workflow and links to more detailed documentation for
+      individual systems.
+    </p>
+
+
+    <h2 id="shotgun">
+      Shotgun
+    </h2>
+
+    <p>
+      Shotgun is Glinnem's dedicated 3D map editor. It is used
+      to create and modify maps before they are compiled into
+      a <code>.gmf</code> file, also known as a Glinnem Map File.
+    </p>
+
+    <p>
+      To create a new map, make or open a 3D project in Glinnem
+      and select <strong>Create Map</strong> in the Actions panel.
+      This is the recommended method.
+    </p>
+
+    <p>
+      Glinnem will create the required map files and allow you
+      to open the map in Shotgun.
+    </p>
+
+    <p>
+      Alternatively, you can open <code>Shotgun.exe</code> from
+      the Glinnem <code>bin</code> directory and follow the prompts.
+    </p>
+
+    <p>
+      If a map is already loaded, select <strong>Edit Map</strong>
+      from the same Actions pane
+```
