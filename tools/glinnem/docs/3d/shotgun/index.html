@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Druidcdp.net - Glinnem Documentation</title>
+
+  <link rel="icon" href="/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       LEFT SIDEBAR
+       ========================= */
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+
+      width: 240px;
+      height: 100vh;
+
+      background: #080808;
+      border-right: 1px solid #333;
+
+      padding: 30px 20px;
+
+      overflow-y: auto;
+    }
+
+    .sidebar-logo {
+      display: block;
+
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+
+      margin: 0 auto 30px;
+    }
+
+    .sidebar-title {
+      color: #EDAD0B;
+
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    details {
+      margin-bottom: 5px;
+    }
+
+    summary {
+      cursor: pointer;
+
+      color: #EDAD0B;
+
+      padding: 9px 10px;
+
+      font-size: 1rem;
+
+      list-style-position: inside;
+    }
+
+    summary:hover {
+      background: #111;
+    }
+
+    .nav-link {
+      display: block;
+
+      padding: 8px 10px 8px 28px;
+
+      color: #aaa;
+      text-decoration: none;
+
+      border-left: 2px solid transparent;
+
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: #EDAD0B;
+      background: #111;
+    }
+
+    /* =========================
+       MAIN CONTENT
+       ========================= */
+
+    .content {
+      margin-left: 240px;
+      margin-right: 210px;
+
+      max-width: 900px;
+
+      padding: 60px 60px;
+    }
+
+    h1 {
+      color: #EDAD0B;
+
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #EDAD0B;
+
+      font-size: 1.6rem;
+
+      margin-top: 55px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #EDAD0B;
+
+      font-size: 1.1rem;
+
+      margin-top: 35px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin: 12px 0;
+    }
+
+    a {
+      color: #EDAD0B;
+    }
+
+    code {
+      color: #EDAD0B;
+      background: #111;
+
+      padding: 2px 5px;
+
+      border-radius: 3px;
+    }
+
+    pre {
+      background: #080808;
+      border: 1px solid #333;
+
+      padding: 18px;
+
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    pre code {
+      padding: 0;
+      background: none;
+      color: #ccc;
+    }
+
+    .version {
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       RIGHT PAGE NAVIGATION
+       ========================= */
+
+    .page-nav {
+      position: fixed;
+
+      right: 0;
+      top: 0;
+
+      width: 210px;
+      height: 100vh;
+
+      padding: 60px 25px;
+
+      border-left: 1px solid #333;
+
+      background: #050505;
+    }
+
+    .page-nav-title {
+      color: #EDAD0B;
+
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .page-nav a {
+      display: block;
+
+      color: #777;
+
+      text-decoration: none;
+
+      font-size: 0.9rem;
+
+      line-height: 1.4;
+
+      margin-bottom: 10px;
+    }
+
+    .page-nav a:hover {
+      color: #EDAD0B;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .page-nav {
+        display: none;
+      }
+
+      .content {
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+
+      .content {
+        margin-left: 0;
+
+        padding: 40px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- =========================
+       DOCUMENTATION NAVIGATION
+       ========================= -->
+
+  <aside class="sidebar">
+
+    <img class="sidebar-logo" src="/GLINNEM.png">
+
+    <div class="sidebar-title">
+      Documentation
+    </div>
+
+
+    <!-- 2D -->
+
+    <details>
+      <summary>2D</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/sprites">
+        Sprites
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/animation">
+        Animation
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/2d/objects">
+        Objects
+      </a>
+
+    </details>
+
+
+    <!-- 3D -->
+
+    <details>
+      <summary>3D</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/shotgun">
+        Shotgun
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/entities">
+        Entities
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/3d/camera">
+        Camera
+      </a>
+
+    </details>
+
+
+    <!-- MISC -->
+
+    <details>
+      <summary>Misc.</summary>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc">
+        Overview
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/game-properties">
+        Game Properties
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/physics">
+        Physics Engine
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/functions">
+        Functions
+      </a>
+
+      <a class="nav-link" href="/tools/glinnem/docs/misc/editor">
+        Editor
+      </a>
+
+    </details>
+
+  </aside>
+
+
+  <!-- =========================
+       MAIN DOCUMENT
+       ========================= -->
+
+  <main class="content">
+
+    <h1>Glinnem Documentation</h1>
+
+    <div class="version">
+      Version 1.0
+    </div>
+
+    <h2 id="introduction">
+      Introduction to Shotgun
+    </h2>
+
+    <p>
+      In order to start building a 3D game, you need to make a map environment first.
+    </p>
+
+    <p>
+      There are two ways to start making a map, you can:
+    </p>
+
+    <ol>
+      <li>
+        Make a new (or open an existing) 3D project in Glinnem, and select "Create map" in the actions panel. (Recomended)
+      </li>
+
+      <li>
+        Open Shotgun.exe in your Glinnem bin directory, and follow the prompts.
+      </li>
+    </ol>
+
+    <p>
+      If you already have a map loaded you can click "Edit map" in the same actions panel, or if you already have a compiled .gmf (Glinnem Map File) you can click "Load map" in the actions panel as well.
+    </p>
+
+    <h3 id="commands">
+      Commands
+    </h3>
+
+    <p>
+      When launching Shotgun from Glinnem's <code>bin</code> directory, you get access to the command prompt before the main window opens, where you can either enter your project directory, or run commands that Shotgun will refer to after the main window opens.<br>
+      Commands and their fuctions are listed below:
+      <table>
+        <tr>
+          <th>Command</th>
+          <th>Usage</th>
+          <th>Function</th>
+        </tr>
+        <tr>
+          <td><code>--pref</code></td>
+          <td>Prompts you a couple of times to enter your preferences manually.</td>
+          <td>Loads your saved preferences.</td>
+        </tr>
+        <tr>
+          <td><code>--prefdir [Directory]</code></td>
+          <td>Enter the directory to your <code>preferences.txt</code></td>
+          <td>Loads your saved preferences.</td>
+        </tr>
+        <tr>
+          <td><code>--debug [Bool]</code></td>
+          <td>Replace the first parameter with either <code>true</code> or <code>false</code>.</td>
+          <td>Turns debug mode on or off.</td>
+        </tr>
+      </table>
+    </p>
+
+
+    <h3 id=usage">
+      Usage
+    </h3>
+
+    <p>
+    When you're in the editor, there is a simple toolbar at the top left of the screen. From there, you can insert primative geometry, such as cubes, spheres, polygon-prisms, cylinders, flat triangles you can edit the verticies of, flat quadrillaterals you can edit the verticies of, and one more button to insert a <code>.obj</code> file as raw triangles or as one big object.
+    </p>
+    <p>
+    To swap between modes, you can press <code>M</code> to switch to the move tool, <code>C</code> to switch to the scale tool, and <code>R</code> to switch to the rotation tool
+    </p>
+    
+    <h2 id="editor">
+      The Editor
+    </h2>
+
+    <p>
+      The Glinnem editor provides the tools used to construct
+      and configure a game.
+    </p>
+
+    <p>
+      Documentation for the individual editor systems can be
+      found in the relevant sections of the navigation menu.
+    </p>
+
+
+    <h2 id="development">
+      Development
+    </h2>
+
+    <p>
+      Glinnem supports both 2D and 3D game development.
+      Choose a section from the navigation menu to learn more
+      about a particular system.
+    </p>
+
+
+    <h2 id="reference">
+      Reference
+    </h2>
+
+    <p>
+      Technical reference material, functions, properties,
+      file formats, and other lower-level information can be
+      found throughout the documentation.
+    </p>
+
+  </main>
+
+
+  <!-- =========================
+       CURRENT PAGE NAVIGATION
+       ========================= -->
+
+  <aside class="page-nav">
+
+    <div class="page-nav-title">
+      On This Page
+    </div>
+
+    <a href="#introduction">
+      Introduction
+    </a>
+
+    <a href="#getting-started">
+      Getting Started
+    </a>
+
+    <a href="#installation">
+      Installation
+    </a>
+
+    <a href="#project-structure">
+      Project Structure
+    </a>
+
+    <a href="#editor">
+      The Editor
+    </a>
+
+    <a href="#development">
+      Development
+    </a>
+
+    <a href="#reference">
+      Reference
+    </a>
+
+  </aside>
+
+
+</body>
+
+</html>
