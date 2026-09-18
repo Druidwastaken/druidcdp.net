@@ -262,6 +262,76 @@
         padding: 40px 25px;
       }
     }
+
+    table {
+  width: 100%;
+  margin: 25px 0;
+
+  border-collapse: collapse;
+
+  background: #080808;
+
+  font-size: 0.9rem;
+}
+
+th {
+  color: #EDAD0B;
+  text-align: left;
+
+  font-weight: normal;
+  letter-spacing: 0.5px;
+
+  padding: 12px 14px;
+
+  background: #111;
+  border-bottom: 1px solid #444;
+}
+
+td {
+  padding: 12px 14px;
+
+  border-bottom: 1px solid #222;
+
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #0d0d0d;
+}
+
+td:first-child {
+  white-space: nowrap;
+}
+
+td:first-child code {
+  color: #EDAD0B;
+  font-weight: bold;
+}
+th:nth-child(1),
+td:nth-child(1) {
+  width: 20%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 25%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 40%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 15%;
+  text-align: center;
+}
+
   </style>
 </head>
 
@@ -419,28 +489,24 @@
           <td>Prompts you a couple of times to enter your preferences manually.</td>
           <td>✓</td>
         </tr>
-        <br>
         <tr>
           <td><code>--prefdir [String]</code></td>
           <td>Replace [String] with the directory to your <code>preferences.txt</code></td>
           <td>Loads your saved preferences from file.</td>
           <td>✓</td>
         </tr>
-        <br>
         <tr>
           <td><code>--debug [Bool]</code></td>
           <td>Replace [Bool] with either <code>true</code> or <code>false</code>.</td>
           <td>Turns debug mode on or off.</td>
           <td>✓</td>
         </tr>
-        <br>
         <tr>
           <td><code>--safe [Bool]</code></td>
           <td>Replace [Bool] with either <code>true</code> or <code>false</code>.</td>
           <td>Turns safe mode on or off.</td>
           <td>✓</td>
         </tr>
-        <br>
         <tr>
           <td><code>--version</code></td>
           <td>No parameters.</td>
@@ -453,8 +519,6 @@
           <td>Opens an existing map, or creates a new one.</td>
           <td>X</td>
         </tr>
-        <br>
-        <br>
       </table>
 
     <h2 id="usage">
