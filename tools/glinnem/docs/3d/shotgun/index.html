@@ -515,7 +515,7 @@ td:nth-child(4) {
         </tr>
         <tr>
           <td><code>--map [String]</code></td>
-          <td>Replace [String] with either a directory to a <code>.shot</code> file, or <code>.gmf</code> file. Alternatively you can type <code>new</code> to create a new map</td>
+          <td>Replace [String] with either a directory to a <code>.gmf</code> file, or <code>.gmf</code> file. Alternatively you can type <code>new</code> to create a new map</td>
           <td>Opens an existing map, or creates a new one.</td>
           <td>X</td>
         </tr>
@@ -560,7 +560,7 @@ td:nth-child(4) {
       Holding <code>Shift</code> while dragging rotates in increments of 0.5 units.
     </p>
 
-    <h2 id=light>
+    <h2 id="light">
       Light
     </h2>
 
@@ -600,6 +600,35 @@ td:nth-child(4) {
       A spotlight casts light in a set direction, in a circle, or in any polygonal shape, with adjustable shape size, radius, and strength.
     </p>
 
+    <h2 id="file-types">
+      File Types
+    </h2>
+
+      <p>
+        Shotgun and Glinnem share one file type for maps called a <code>.gmf</code>, or a "Glinnem Map File", containing your map and its lighting.<br>
+        In a geometric sense, a <code>.gmf</code> contains raw triangle data grouped into type names such as <code>cube</code>, <code>sphere</code>, etc.<br>
+        In a lighting sense, a <code>.gmf</code> contains a baked lightmap texture, with a second UV set that maps every static surface of the map to its corresponding area of the lightmap.<br>
+        In a texture sense, a <code>.gmf</code> contains the textures assigned to its triangles, along with their UV coordinates within each group.<br>
+        Both programs read these files in different ways.<br>
+        Below covers how Shotgun and Glinnem read these files.
+      </p>
+
+      <h3>
+        Shotgun
+      </h3>
+      
+      <p>
+        Shotgun reads each group as it is, which is why instead of seeing raw triangles when editing a map, you see actual cubes. (Even though it obviously is still triangles, you edit a cube instead of setting each individual vertex of a triangle.)
+      </p>
+
+      <h3>
+        Glinnem
+      </h3>
+      
+      <p>
+        Glinnem doesnt really care about the groups, it reads the raw triangles within them and displays them as static geometry. It also takes the UV and texture data (For both the light, and the decals), and applies them to every applicable surface.
+      </p>
+
   </main>
 
 
@@ -627,6 +656,10 @@ td:nth-child(4) {
 
     <a href="#light">
       Light
+    </a>
+
+    <a href="#file-types">
+      File Types
     </a>
 
   </aside>
