@@ -577,7 +577,7 @@ td:nth-child(4) {
     </h2>
 
     <p>
-    When you're in the editor, there is a simple toolbar at the top left of the screen. From there, you can insert primitive geometry, such as cubes, spheres, polygon-prisms, cylinders, flat triangles you can edit the vertices of, flat quadrillaterals you can edit the vertices of, and one more button to insert a <code>.obj</code> file as raw triangles or as one big object.
+    When you're in the editor, there is a simple toolbar at the top left of the screen. From there, you can insert primitive geometry, such as cubes, spheres, polygon-prisms, cylinders, flat triangles you can edit the vertices of, flat quadrilaterals you can edit the vertices of, and one more button to insert a <code>.obj</code> file as raw triangles or as one big object.
     </p>
     <p>
     To swap between modes, you can press <code>M</code> to switch to the move tool, <code>C</code> to switch to the scale tool, and <code>R</code> to switch to the rotation tool.
@@ -616,12 +616,12 @@ td:nth-child(4) {
     </h2>
 
     <p>
-      Shotgun isnt exclusive to just geometry, it includes the ability to bake static lighting into your map. Since your map geometry isn't going to move, it saves processing power to pre-calculate all the lighting data before runtime in adjustable detail levels. Of course, this is optional.
+      Shotgun isn't exclusive to just geometry, it includes the ability to bake static lighting into your map. Since your map geometry isn't going to move, it saves processing power to pre-calculate all the lighting data before runtime in adjustable detail levels. Of course, this is optional.
     </p>
     
     <p>
-      Some properties like radius determines how far rays go until they stop, and strength indicates how sharp/soft shadows will appear based on its distance from the area light.
-      There are three light object you can place to control how light is baked. at least one of these types have to be placed somewhere in your map for the <code>Bake lighting!</code> option to be available.<br>
+      Some properties like radius determine how far rays go until they stop, and strength indicates how sharp/soft shadows will appear based on its distance from the area light.
+      There are three light objects you can place to control how light is baked. At least one of these types have to be placed somewhere in your map for the <code>Bake lighting!</code> option to be available.<br>
       These include:
     </p>
 
@@ -659,7 +659,7 @@ td:nth-child(4) {
         In a geometric sense, a <code>.gmf</code> contains raw triangle data grouped into type names such as <code>cube</code>, <code>sphere</code>, etc.<br>
         In a lighting sense, a <code>.gmf</code> contains a baked lightmap texture, with a second UV set that maps every static surface of the map to its corresponding area of the lightmap.<br>
         In a texture sense, a <code>.gmf</code> contains the textures assigned to its triangles, along with their UV coordinates within each group.<br>
-        In a collision sense, a <code>.gmf</code> contains hitboxes of four different types; Floors, Walls, Celings, and Out Of Bounds. More on this on the next section.<br>
+        In a collision sense, a <code>.gmf</code> contains hitboxes of four different types; Floors, Walls, Ceilings, and Out Of Bounds. More on this on the next section.<br>
         Both programs read these files in different ways.<br>
         Below covers how Shotgun and Glinnem read these files.
       </p>
@@ -677,18 +677,18 @@ td:nth-child(4) {
       </h3>
       
       <p>
-        Glinnem doesnt really care about the groups, it reads the raw triangles within them and displays them as static geometry. It also takes the UV and texture data (For both the light, and the decals), and applies them to every applicable surface.<br>
-        Glinnem doesnt nessisarilly care about collision data when in editor mode, but it does matter in playtest mode -- So in order for Glinnem to open a <code>.gmf</code>, collision data needs to be present.
+        Glinnem doesn't really care about the groups, it reads the raw triangles within them and displays them as static geometry. It also takes the UV and texture data (For both the light, and the decals), and applies them to every applicable surface.<br>
+        Glinnem doesn't necessarily care about collision data when in editor mode, but it does matter in playtest mode -- So in order for Glinnem to open a <code>.gmf</code>, collision data needs to be present.
       </p>
 
     <h2 id="collision">
-      Collision And Hitboxes
+      Collision
     </h2>
 
     <p>
       A valid <code>.gmf</code> to be read by Glinnem needs to contain a collision map, and one can be made by clicking the <code>Calculate Collisions</code> button in Shotgun's actions panel.<br>
-      These are cauculated via the normals of triangles, and are important to be understood when creating/troubleshooting maps, and writing custom movement systems.<br>
-      Below covers the four different types, how they work, and how they are calculated, for simplicity they will be looked at from a 2D perspective. Also, when I reffer to the "Player movement" I'm talking about the built in code for the player entity, that doesnt necissarily mean that if you edit that code, the player will behave the same way to collision objects.
+      These are calculated via the normals of triangles, and are important to be understood when creating/troubleshooting maps, and writing custom movement systems.<br>
+      Below covers the four different types, how they work, and how they are calculated, for simplicity they will be looked at from a 2D perspective. Also, when I refer to the "Player movement" I'm talking about the built in code for the player entity, that doesn't necessarily mean that if you edit that code, the player will behave the same way to collision objects.
     </p>
 
     <h3>
@@ -696,19 +696,19 @@ td:nth-child(4) {
     </h3>
 
     <p>
-      triangles who's normals are facing upwards between angles 190° to 350° are classed as a floor triangle, and the hitbox extends 20 units downwards. When the player's feet touch the hitbox, the player will snap to the surface of it.
+      triangles whose normals are facing upwards between angles 190° to 350° are classed as a floor triangle, and the collision extends 20 units downwards. When the player's feet touch the collision space, the player will snap to the surface of it.
     </p>
 
     <h3>
-      Celings
+      Ceilings
     </h3>
 
     <p>
-      triangles who's normals are facing downwards between angles 10° to 170° are classed as a celing triangle, the hitbox extends 20 units downwards, and infinetly upwards.<br>
-      When the player hits a celing while moving <strong>upwards</strong>, they will be deducted of all upwards momentum, and movement for that frame will be cancelled.<br>
-      When the player hits a celing while moving <strong>downwards</strong>, they will be deducted of all horisontal momentum, and all horisontal movement for that frame will be cancelled.<br>
-      When the player hits a celing while moving <strong>on the ground</strong>, all movement for that frame will be cancelled.<br>
-      i.e. I said that celing goes infinetly upwards, but thats only when in isolation. which it should never be in, it goes upwards until it hits a wall, or a slanted floor.
+      triangles whose normals are facing downwards between angles 10° to 170° are classed as a ceiling triangle, the collision extends 20 units downwards, and infinitely upwards.<br>
+      When the player hits a ceiling while moving <strong>upwards</strong>, they will be deducted of all upwards momentum, and movement for that frame will be cancelled.<br>
+      When the player hits a ceiling while moving <strong>downwards</strong>, they will be deducted of all horizontal momentum, and all horizontal movement for that frame will be cancelled.<br>
+      When the player hits a ceiling while moving <strong>on the ground</strong>, all movement for that frame will be cancelled.<br>
+      i.e. I said that the ceiling goes infinitely upwards, but that's only when in isolation. which it should never be in, it goes upwards until it hits a wall, or a slanted floor.
     </p>
 
     <h3>
@@ -716,37 +716,50 @@ td:nth-child(4) {
     </h3>
 
     <p>
-      triangles who's normals are facing horisontally between angles 170° to 190° (Remembering this is from a 2D perspective) are classed as a wall triangle, and the hitbox extends 20 units towards and behind the triangles normal vector.<br>
-      When the player touches the hitbox, the player will be pushed out of it in the normal's facing direction by the amount necesarry to get it outside of the hitbox, <strong>NOT</strong> by the same amount that the player was moving into it.
+      triangles whose normals are facing horizontally between angles 170° to 190° (Remembering this is from a 2D perspective) are classed as a wall triangle, and the collision extends 20 units towards and behind the triangles normal vector.<br>
+      When the player touches the collision space, the player will be pushed out of it in the normal's facing direction by the amount necessary to get it outside of the space, <strong>NOT</strong> by the same amount that the player was moving into it.
     </p>
 
     <h3>
-      Out Of Bounds
+      Out Of Bounds (OOB)
     </h3>
 
     <p>
-      Out Of Bounds (OOB) hitboxes are unique in the sense that they dont need a parenting triangle to exist, in fact they exist in every single map, even if it doent have ANY triangles, however they are still important.<br>
-      OOB is just one big hitbox starting from the whole surface on the bottom of a map, all the way to the top. but any wall, celing, or floor hitbox will stop it, and make a safe haeven above.<br>
-      When the player hits OOB while <strong>in the air</strong>, they will be deducted of all Y momentum, and all horisontal movement for that frame will be cancelled.<br>
-      When the player hits OOB while moving <strong>on the ground</strong>, all movement for that frame will be cancelled.<br>
-      Before the player checks for movement input, if the player is already inside of an OOB hitbox, they will die, this is an extreme case, and should idealy never happen.<br>
+      Out Of Bounds (OOB) collisions are unique in the sense that they don't need a parenting triangle to exist, in fact they exist in every single map, even if it doesn't have ANY triangles, however it is arguably the most important when it comes to troubleshooting your maps.<br>
+    </p>
+      <p>
+        OOB is the default state of space that is <strong>not protected by collision geometry</strong>. It is not a floor underneath the map, and touching OOB does not automatically kill the player.
       </p>
+    <p>
+      Floor, wall, and ceiling collision geometry defines areas of space where the player is allowed to move. Everything outside of those protected areas is considered OOB. OOB can extend vertically through the entire usable height of the map, rather than existing only underneath it.
+    </p>
+    <p>
+      For example, imagine a map made of several floating islands. Without a large floor collision surface underneath the islands, the empty space between them is OOB. The player therefore cannot simply jump from one island to another, because the collision system prevents the player from entering that unprotected space.
+    </p>
+    <img class="sidebar-logo" src="/shotgunoobdia1.png">
+    <p>
+      A large floor collision surface can instead be placed underneath the islands. This creates a safe area above the floor, allowing the player to move and jump freely between the islands. An invisible static entity can then be placed over the same area and given game logic that kills the player when they reach it. This creates a traditional "death barrier".
+    </p>
+    <img class="sidebar-logo" src="/shotgunoobdia2.png">
+    <p>
+      Importantly, <strong>OOB itself is not a death barrier</strong>. During normal movement, the collision system prevents the player from entering OOB. If the player is already inside OOB before movement checks begin, such as after being teleported there, the player will be detected as being outside of valid collision space and killed. This is not a game mechanic, or OOB giving a "void death" effect. It is a failsafe for the player being placed somewhere they are not supposed to be.
+    </p>
 
     <p>
-      Tooltip: if you want a void in your map, you can add a death barrier (two floor triangles). Here's how:<br><br>
+      Tooltip: As previously stated, if you want a section of your map to function as a void that the player can fall into, you can create a death barrier (two floor triangles). Here's how:<br><br>
       
       You can add a large quad under your map in Shotgun to block the OOB, then add an invisible static object in Glinnem covering the same area for the death logic. Then script the static object like this:
     </p>
         <div class="code-box">
       <button class="copy-button" onclick="copyCode(this)">Copy</button>
 
-      <pre><code>int main() //If you diddn't read the scripting doc, the main function is an optional function for each object that runs once for every applicable object, unless called elsewhere.
+      <pre><code>int main() //If you didn't read the scripting doc, the main function is an optional function for each object that runs once for every applicable object, unless called elsewhere.
 {
   Player = game::player; // Make sure your player object's ID string is set to "player", or change this value to match with your player.
   Barrier = game::barrier; // Make sure this object's ID string is set to "barrier", or change this value to match with your player.
 }
 
-void EntityTickCheck() //If you diddn't read the scripting doc, the EntityTickCheck function is an optional function for each object that runs every tick.
+void EntityTickCheck() //If you didn't read the scripting doc, the EntityTickCheck function is an optional function for each object that runs every tick.
 {
   if (Player:Collided(Barrier))
   {
@@ -799,3 +812,5 @@ void EntityTickCheck() //If you diddn't read the scripting doc, the EntityTickCh
 </body>
 
 </html>
+
+
