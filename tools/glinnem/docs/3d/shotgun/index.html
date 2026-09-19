@@ -6,7 +6,6 @@
   <title>Druidcdp.net - Glinnem Documentation</title>
 
   <link rel="icon" href="/icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -332,7 +331,59 @@ td:nth-child(4) {
   text-align: center;
 }
 
+.code-box {
+      position: relative;
+      margin: 20px 0;
+      background: #111;
+      border: 1px solid #444;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .code-box pre {
+      margin: 0;
+      padding: 20px;
+      padding-top: 50px;
+      overflow-x: auto;
+      box-sizing: border-box;
+    }
+
+    .code-box code {
+      font-family: Consolas, monospace;
+      color: #EDAD0B;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
+      background: #222;
+      color: #EDAD0B;
+      border: 1px solid #EDAD0B;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background: #EDAD0B;
+      color: black;
+    }
   </style>
+
+  <script>
+    function copyCode(button) {
+      const code = button.parentElement.querySelector("code").textContent;
+
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = "Copied!";
+
+        setTimeout(() => {
+          button.textContent = "Copy";
+        }, 1500);
+      });
+    }
+  </script>
 </head>
 
 <body>
@@ -538,7 +589,7 @@ td:nth-child(4) {
 
     <p>
       To move geometry around the viewport, you can use the move tool by clicking on any piece of geometry with movement mode ON, and dragging the X, Y, or Z gizmo.
-      Holding <code>Shift</code> while dragging moves in increments of 0.5 units.
+      Holding <code>Shift</code> while dragging moves in increments of 5 units.
     </p>
 
     <h3>
@@ -547,7 +598,7 @@ td:nth-child(4) {
 
     <p>
       To scale geometry, you can use the scale tool by clicking on any piece of geometry with scale mode ON, and dragging one of the X, Y, or Z gizmo.
-      Holding <code>Shift</code> while dragging scales in increments of 0.5 units.
+      Holding <code>Shift</code> while dragging scales in increments of 5 units.
       Holding <code>Alt</code> while dragging pivots from the opposite face you are scaling from.
     </p>
 
@@ -557,7 +608,7 @@ td:nth-child(4) {
 
     <p>
       To rotate geometry, you can use the rotate tool by clicking on any piece of geometry with rotate mode ON, and dragging the pitch, yaw, or roll gizmo.
-      Holding <code>Shift</code> while dragging rotates in increments of 0.5 units.
+      Holding <code>Shift</code> while dragging rotates in increments of 5°.
     </p>
 
     <h2 id="light">
@@ -579,9 +630,8 @@ td:nth-child(4) {
     </h3>
 
     <p>
-      A sun is a light with no radius, and rays casted from it will keep going until they hit geometry, or Out Of Bounds.<br>
-      Rays are casted in all directions from the sun, and shadows will always appear sharp.<br>
-      Tooltip: These are best placed in the sky, like their real life counterpart.
+      A Sun is a light with no meaningful position in space. Instead, it represents a direction in the sky infinitely far away from the map. It is essentially a rotation that determines the direction the sunlight comes from.<br>
+      The sunlight is represented by parallel light rays traveling towards the map, which produce sharp shadows.
     </p>
 
     <h3>
@@ -609,6 +659,7 @@ td:nth-child(4) {
         In a geometric sense, a <code>.gmf</code> contains raw triangle data grouped into type names such as <code>cube</code>, <code>sphere</code>, etc.<br>
         In a lighting sense, a <code>.gmf</code> contains a baked lightmap texture, with a second UV set that maps every static surface of the map to its corresponding area of the lightmap.<br>
         In a texture sense, a <code>.gmf</code> contains the textures assigned to its triangles, along with their UV coordinates within each group.<br>
+        In a collision sense, a <code>.gmf</code> contains hitboxes of four different types; Floors, Walls, Celings, and Out Of Bounds. More on this on the next section.<br>
         Both programs read these files in different ways.<br>
         Below covers how Shotgun and Glinnem read these files.
       </p>
@@ -626,8 +677,84 @@ td:nth-child(4) {
       </h3>
       
       <p>
-        Glinnem doesnt really care about the groups, it reads the raw triangles within them and displays them as static geometry. It also takes the UV and texture data (For both the light, and the decals), and applies them to every applicable surface.
+        Glinnem doesnt really care about the groups, it reads the raw triangles within them and displays them as static geometry. It also takes the UV and texture data (For both the light, and the decals), and applies them to every applicable surface.<br>
+        Glinnem doesnt nessisarilly care about collision data when in editor mode, but it does matter in playtest mode -- So in order for Glinnem to open a <code>.gmf</code>, collision data needs to be present.
       </p>
+
+    <h2 id="collision">
+      Collision And Hitboxes
+    </h2>
+
+    <p>
+      A valid <code>.gmf</code> to be read by Glinnem needs to contain a collision map, and one can be made by clicking the <code>Calculate Collisions</code> button in Shotgun's actions panel.<br>
+      These are cauculated via the normals of triangles, and are important to be understood when creating/troubleshooting maps, and writing custom movement systems.<br>
+      Below covers the four different types, how they work, and how they are calculated, for simplicity they will be looked at from a 2D perspective. Also, when I reffer to the "Player movement" I'm talking about the built in code for the player entity, that doesnt necissarily mean that if you edit that code, the player will behave the same way to collision objects.
+    </p>
+
+    <h3>
+      Floors
+    </h3>
+
+    <p>
+      triangles who's normals are facing upwards between angles 190° to 350° are classed as a floor triangle, and the hitbox extends 20 units downwards. When the player's feet touch the hitbox, the player will snap to the surface of it.
+    </p>
+
+    <h3>
+      Celings
+    </h3>
+
+    <p>
+      triangles who's normals are facing downwards between angles 10° to 170° are classed as a celing triangle, the hitbox extends 20 units downwards, and infinetly upwards.<br>
+      When the player hits a celing while moving <strong>upwards</strong>, they will be deducted of all upwards momentum, and movement for that frame will be cancelled.<br>
+      When the player hits a celing while moving <strong>downwards</strong>, they will be deducted of all horisontal momentum, and all horisontal movement for that frame will be cancelled.<br>
+      When the player hits a celing while moving <strong>on the ground</strong>, all movement for that frame will be cancelled.<br>
+      i.e. I said that celing goes infinetly upwards, but thats only when in isolation. which it should never be in, it goes upwards until it hits a wall, or a slanted floor.
+    </p>
+
+    <h3>
+      Walls
+    </h3>
+
+    <p>
+      triangles who's normals are facing horisontally between angles 170° to 190° (Remembering this is from a 2D perspective) are classed as a wall triangle, and the hitbox extends 20 units towards and behind the triangles normal vector.<br>
+      When the player touches the hitbox, the player will be pushed out of it in the normal's facing direction by the amount necesarry to get it outside of the hitbox, <strong>NOT</strong> by the same amount that the player was moving into it.
+    </p>
+
+    <h3>
+      Out Of Bounds
+    </h3>
+
+    <p>
+      Out Of Bounds (OOB) hitboxes are unique in the sense that they dont need a parenting triangle to exist, in fact they exist in every single map, even if it doent have ANY triangles, however they are still important.<br>
+      OOB is just one big hitbox starting from the whole surface on the bottom of a map, all the way to the top. but any wall, celing, or floor hitbox will stop it, and make a safe haeven above.<br>
+      When the player hits OOB while <strong>in the air</strong>, they will be deducted of all Y momentum, and all horisontal movement for that frame will be cancelled.<br>
+      When the player hits OOB while moving <strong>on the ground</strong>, all movement for that frame will be cancelled.<br>
+      Before the player checks for movement input, if the player is already inside of an OOB hitbox, they will die, this is an extreme case, and should idealy never happen.<br>
+      </p>
+
+    <p>
+      Tooltip: if you want a void in your map, you can add a death barrier (two floor triangles). Here's how:<br><br>
+      
+      You can add a large quad under your map in Shotgun to block the OOB, then add an invisible static object in Glinnem covering the same area for the death logic. Then script the static object like this:
+    </p>
+        <div class="code-box">
+      <button class="copy-button" onclick="copyCode(this)">Copy</button>
+
+      <pre><code>int main() //If you diddn't read the scripting doc, the main function is an optional function for each object that runs once for every applicable object, unless called elsewhere.
+{
+  Player = game::player; // Make sure your player object's ID string is set to "player", or change this value to match with your player.
+  Barrier = game::barrier; // Make sure this object's ID string is set to "barrier", or change this value to match with your player.
+}
+
+void EntityTickCheck() //If you diddn't read the scripting doc, the EntityTickCheck function is an optional function for each object that runs every tick.
+{
+  if (Player:Collided(Barrier))
+  {
+    Player.Health = 0; // If your player object uses a different identifier, replace "Health" to match.
+  }
+}</code></pre>
+          
+    </div>
 
   </main>
 
@@ -660,6 +787,10 @@ td:nth-child(4) {
 
     <a href="#file-types">
       File Types
+    </a>
+
+    <a href="#collision">
+      Collision and Hitboxes
     </a>
 
   </aside>
